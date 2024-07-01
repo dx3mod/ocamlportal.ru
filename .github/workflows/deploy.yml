@@ -1,0 +1,60 @@
+name: Развертывание ocamlportal
+
+on:
+  push:
+    branches: [master]
+
+  # Позволяет вам запускать этот рабочий процесс вручную из вкладки Действия
+  workflow_dispatch:
+
+# Устанавливает разрешения GITHUB_TOKEN для развертывания на GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Разрешает только одно одновременное развертывание, пропуская запущенные между запущенным в данный момент и последним поставленным в очередь.
+# Однако НЕ отменяйте запущенные процессы, так как мы хотим позволить этим развертываниям в продакшне завершиться.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Задание сборки
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Не нужно, если lastUpdated не включен
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm # или pnpm / yarn
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Install dependencies
+        run: npm ci # или pnpm install / yarn install / bun install
+      - name: Build with VitePress
+        run: |
+          npm run docs:build # или pnpm docs:build / yarn docs:build / bun run docs:build
+          touch docs/.vitepress/dist/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  # Задание развертывания
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Развертывание
+    steps:
+      - name: Развертывание на GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
