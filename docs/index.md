@@ -1,25 +1,32 @@
----
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
+Добро пожаловать на русскоязычный ресурс по [OCaml] и его экосистеме! 
+Тут вы сможете найти различные статьи, перевод документации и гайды по библиотекам. 
 
-hero:
-  name: "ocamlportal"
-  text: "A VitePress Site"
-  tagline: My great project tagline
-  actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+```ocaml
+# print_endline "Мечтают ли верблюды о сочных кактусах?";;
+```
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
+### Давай дружить, :camel:!
 
+<!-- 1. Посетите официальный сайт и следуйте [инструкции по установки](https://ocaml.org/install) -->
+1. Откройте [игровую площадку](https://ocaml.org/play) :playground_slide:
+2. Пройдите [горячий тур](https://ocaml.org/docs/tour-of-ocaml) :hotsprings: 
+3. ~~Напишите компилятор~~
+
+
+### Содержание
+
+::: details Тулчейн
+
+- [Система сборки Dune](/dune) (в процессе)
+
+:::
+
+
+### Авторы
+
+- Михаил, aka [dx3mod](https://dx3mod.ru)
+
+
+
+
+[OCaml]:https://ocaml.org/

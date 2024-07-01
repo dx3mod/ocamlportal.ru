@@ -3,26 +3,27 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ocamlportal",
-  description: "A VitePress Site",
+  description: "Ресурс по OCaml и его экосистеме.",
+  lang: "ru-RU",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Главная', link: '/' },
+      { text: "Ментейнерам", link: "/maintainers" }
     ],
 
     sidebar: [
+      { text: "Полезные ресурсы", link: "/resources" },
       {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
+        text: "Тулчейн",
+        collapsed: false,
+        items: [{ text: "Система сборки Dune", link: "/tools/dune" }]
       }
+
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/dx3mod/ocamlportal.ru' }
     ]
   }
 })
