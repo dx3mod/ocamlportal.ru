@@ -21,6 +21,13 @@ export default defineConfig({
         items: [
           { text: "Система сборки Dune", link: "/tools/dune" },
           { text: "Пакетный менеджер OPAM", link: "/tools/opam" }],
+      },
+      {
+        text: "Библиотеки",
+        collapsed: false,
+        items: [
+          { text: "Decoders", link: "/libraries/decoders" }
+        ]
       }
 
     ],

@@ -22,6 +22,13 @@
 
 :::
 
+::: details Библиотеки
+
+- [Decoders](./libraries/decoders.md)
+
+:::
+
+
 
 ### Авторы
 
