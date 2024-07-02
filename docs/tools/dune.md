@@ -1,8 +1,12 @@
 # Система сборки Dune
 
-**Dune** - самое популярное решение для сборки OCaml-проектов, оно глубоко интегрировано в экосистему языка,
-обладает современным функционалом (на подобие инкрементальной сборки, параллельности) и позволяет собирать
-как исполняемые программы, так и библиотеки, вызывать тесты.
+**Dune** - самое популярное решение для сборки OCaml-проектов, оно глубоко интегрировано в экосистему языка, обладает современным функционалом (на подобие инкрементальной сборки, параллельности) и позволяет собирать как исполняемые программы, так и библиотеки, вызывать тесты.
+
+- [Quick start](https://dune.readthedocs.io/en/stable/quick-start.html)
+
+Стоит понимать, Dune не занимается управлением пакетами (сторонних библиотек), она способна только их подключать.
+Для управления же используется пакетный менеджер [OPAM](./opam.md).
+
 
 ## Базовые понятия 
 
@@ -13,100 +17,74 @@
 
 Проект содержит один или более компонент любого типа, которые могут зависеть друг от друга.
 
-Эти компоненты могут быть объеденины в пакеты для [OPAM](./opam.md).
-Для их последующего распространения.
+Эти компоненты могут быть объеденины в пакеты для их последующего распространения.
 
-<!-- Внутри проекта может находиться сколько угодно подобных компонентов, которые 
-могут быть объеденины в пакеты (package) для [OPAM](./opam.md). Определяемых 
-пакетов тоже может быть множество. -->
+## Автоматическое форматирование
 
-## Работа с Dune
-
-### Создание проекта
-
-Для создания проекта можно воспользоваться командой `dune init`:
+Для этого у вас должен быть установлен [`ocamlformat`](https://github.com/ocaml-ppx/ocamlformat).
 ```sh
-$ dune init project demo
+$ opam install ocamlformat
 ```
 
-- где `demo` название проекта (название может содержать только буквы английского алфавита, цифры и символ нижнего подчёркивания)
-
-### Типичная структура 
-
-```
-demo/
-├── bin
-│   ├── dune
-│   └── main.ml
-├── demo.opam
-├── dune-project
-├── lib
-│   └── dune
-└── test
-    ├── dune
-    └── test_demo.ml
+После чего в корень проекта добавьте файл `.ocamlformat`:
+```sh
+$ touch .ocamlformat
 ```
 
-#### `dune-project`
-
-Корневой файл конфигурации проекта, в нём описываются пакеты 
-и другая информация. Для сборки проекта на самом деле достаточна иметь только первую строчку, указывающая версию, если нам не нужен OPAM-файл.
-
-```dune_project
-(lang dune 3.16)
-
-(name demo)
-
-(generate_opam_files true)
-
-(source
- (github username/reponame))
-
-(authors "Author Name")
-
-(maintainers "Maintainer Name")
-
-(license LICENSE)
-
-(documentation https://url/to/documentation)
-
-(package
- (name demo)
- (synopsis "A short synopsis")
- (description "A longer description")
- (depends ocaml dune)
- (tags
-  (topics "to describe" your project)))
+Этого достаточно, чтобы использовалось автоформатирование командами:
+```sh
+$ dune fmt # или dune build @fmt
 ```
 
-#### `bin`, `lib`, `test`
+Для настройки профиля и версии смотрите [документацию](https://dune.readthedocs.io/en/stable/howto/formatting.html).
 
-Всё это компоненты, для них можно видеть характерный файл `dune`.
+## Чтения файлов в тестах
 
-##### `bin`
+Распространённый кейс, когда в тестах вы читаете какой-нибудь файл. Если вы попробуете это сделать, то получите ошибку о том, что файл не найден, ибо этот файл не находится в каталоге `_build`. 
 
-```dune
-(executable
- (public_name demo)
- (name main)
- (libraries demo))
+Пример каталога с тестом:
+```
+test/
+├── data.test.txt
+├── dune
+└── test_demo.ml
 ```
 
-##### `lib`
-
-```dune
-(library
- (name demo))
+```ocaml
+(* test_demo.ml *)
+let () = open_in "data.test.txt" |> In_channel.input_all |> print_endline
 ```
 
-##### `test`
+```sh
+$ dune runtest
+File "test/dune", line 2, characters 7-16: 
+2 |  (name test_demo))
+           ^^^^^^^^^
+Fatal error: exception Sys_error("data.test.txt: No such file or directory") # [!code focus]
+```
+
+Для исправления этого в файле `dune` вы должны указать зависимости в поле `deps`.
 
 ```dune
 (test
- (name test_demo))
+ (name test_demo)
+ (deps data.test.txt)) // [!code ++]
 ```
 
+Подробнее смотрите в [Dependency Specification](https://dune.readthedocs.io/en/stable/concepts/dependency-spec.html).
 
+## Зависимости при установки 
 
-<!-- - `dune-project` к;
-- `demo.opam` манифест OPAM пакета, он автоматически создается при сборки проекта;  -->
+Dune умеет в установку скомпилированных артефактов в систему, но помимо бинарника надо иногда иметь и сторонние ресурсы. Например, HTML-странички в случае веб-сайта.
+
+Для этого существует *строфа* `install` в `dune` файле. Пример:
+
+```dune
+(install
+ (files hello.txt)
+ (section share)
+ (package mypackage))
+```
+В этом примере файл `hello.txt` будет установлен по пути `<prefix>/share/mypackage`. 
+
+За подробностями читайте [мануал](https://dune.readthedocs.io/en/stable/reference/dune/install.html).

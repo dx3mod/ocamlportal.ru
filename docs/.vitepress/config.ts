@@ -18,7 +18,9 @@ export default defineConfig({
       {
         text: "Тулчейн",
         collapsed: false,
-        items: [{ text: "Система сборки Dune", link: "/tools/dune" }]
+        items: [
+          { text: "Система сборки Dune", link: "/tools/dune" },
+          { text: "Пакетный менеджер OPAM", link: "/tools/opam" }],
       }
 
     ],

@@ -17,7 +17,8 @@
 
 ::: details Тулчейн
 
-- [Система сборки Dune](./tools/dune.md) (в процессе)
+- [Система сборки Dune](./tools/dune.md)
+- [Пакетный менеджер OPAM](./tools/opam.md)
 
 :::
 
