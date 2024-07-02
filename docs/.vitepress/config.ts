@@ -5,7 +5,7 @@ export default defineConfig({
   title: "ocamlportal",
   description: "Ресурс по OCaml и его экосистеме.",
   lang: "ru-RU",
-  base: "https://dx3mod.github.io/ocamlportal.ru/",
+  // base: "https://dx3mod.github.io/ocamlportal.ru/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
