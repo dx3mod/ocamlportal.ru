@@ -8,11 +8,11 @@ export default defineConfig({
   // base: "https://dx3mod.github.io/ocamlportal.ru/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: "favicon.ico",
     nav: [
       { text: 'Главная', link: '/' },
       { text: "Ментейнерам", link: "/maintainers" }
     ],
-
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
       {
