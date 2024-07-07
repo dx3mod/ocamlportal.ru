@@ -26,7 +26,13 @@ export default defineConfig({
         text: "Библиотеки",
         collapsed: false,
         items: [
-          { text: "Decoders", link: "/libraries/decoders" }
+          { text: "Decoders", link: "/libraries/decoders" },
+          {
+            text: "Core", link: "/libraries/core", collapsed: false, items: [
+              { text: "Base", link: "/libraries/core/base" },
+              { text: "Command", link: "/libraries/core/command" }
+            ]
+          }
         ]
       }
 
