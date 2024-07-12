@@ -32,14 +32,21 @@ export default defineConfig({
               { text: "Base", link: "/libraries/core/base" },
               { text: "Command", link: "/libraries/core/command" }
             ]
-          }
+          },
+          {
+            text: "Сеть", collapsed: false, items: [
+              { text: "Cohttp", link: "/libraries/web/cohttp" },
+            ]
+          },
+
         ]
       }
 
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/dx3mod/ocamlportal.ru' }
+      { icon: 'github', link: 'https://github.com/dx3mod/ocamlportal.ru' },
+      { icon: "discord", link: "https://discord.gg/MJvmEsVXk8" }
     ]
   }
 })
