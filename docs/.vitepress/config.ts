@@ -36,6 +36,7 @@ export default defineConfig({
           {
             text: "Сеть", collapsed: false, items: [
               { text: "Cohttp", link: "/libraries/web/cohttp" },
+              { text: "Vkashka", link: "/libraries/web/vkashka" },
             ]
           },
 

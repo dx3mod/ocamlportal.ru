@@ -5,6 +5,7 @@
         "ocamlportal",
         "opam",
         "struct",
-        "utop"
+        "utop",
+        "Vkashka"
     ]
 }
