@@ -5,9 +5,31 @@
 
 В RWO использованию этого модуля повещена отдельная глава [Command-Line Parsing](https://dev.realworldocaml.org/command-line-parsing.html). Иной документации нету.
 
-## Use case
+Штука мощнее, чем [`Arg`](https://ocaml.org/manual/api/Arg.html), но ощущается убого:
+ужаснейший вывод ошибок (его нет); длинные флаги, начинающиеся с одного `-` (например, `-help`, хотя `--help` он тоже скушает).   
 
-Если вы уже используете [`Core`](./index.md) и вам необходимо накидать по-быстрому CLI с минимальным баттерхёртом,
-без ужасного [`Cmdliner`](../cmdliner.md)'а, и вас не особо парит оформление, то однозначно must have! 
+## Пример
 
-В ином случае... используйте [`Karg`](../karg.md).
+```ocaml
+open Core
+
+let do_hash file =
+  Md5.digest_file_blocking file |> Md5.to_hex |> print_endline
+
+let command =
+  Command.basic
+    ~summary:"Generate an MD5 hash of the input data"
+    ~readme:(fun () -> "More detailed information")
+    (let%map_open.Command filename =
+       anon (maybe ("filename" %: string))
+     in
+     fun () -> do_hash filename)
+
+let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command
+```
+
+
+## Альтернативы
+
+- [`Cmdliner`](../cli/cmdliner.md) &mdash; мощнейший комбайн для тех, кто понял как его использовать, для остальных это непонятное overengineering поделие от сумасшедших.   
+- [`Arg`](https://ocaml.org/manual/api/Arg.html) &mdash; для простых интерфейсов, где надо принять пару флагов, наиболее удачное решение.
