@@ -39,6 +39,12 @@ export default defineConfig({
               { text: "Vkashka", link: "/libraries/web/vkashka" },
             ]
           },
+          {
+            text: "Парсеры", collapsed:false,items:[
+              { text: "Angstrom", link: "/libraries/parsers/angstrom" },
+              
+            ]
+          }
 
         ]
       }
