@@ -19,10 +19,13 @@
 let token = Vkashka.access_token "YOUR_TOKEN"
 
 (* Создание модуля для работы с API с внедренными зависимостями: 
-   реализация HTTP-клиента и токен.  *)
+   реализация Cohttp+Lwt-совместимого клиента и токен.  *)
 module Vk_api = Vkashka.Api (Cohttp_lwt_unix.Client) (val token)
 
 (* Получение одного пользователя.  *)
-Vk_api.Users.(get ~user_ids:["username"] () >|= first)
-(* - : (Vkashka.User.t, string) result *)
+Vk_api.Users.(get ~user_ids:["username"] () |> first)
+(* - : Vkashka.User.t option *)
 ```
+
+В случае ошибки от API (например, при неверном токене) бросается исключение `Response.Api_error`, 
+в случае ошибки парсинга `Response.Parse_error`.
