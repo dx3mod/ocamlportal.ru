@@ -4,6 +4,7 @@
         "endline",
         "ocamlportal",
         "opam",
+        "Rpmfile",
         "struct",
         "utop",
         "Vkashka"

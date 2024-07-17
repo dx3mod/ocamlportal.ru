@@ -42,7 +42,7 @@ export default defineConfig({
           {
             text: "Парсеры", collapsed:false,items:[
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
-              
+              { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
             ]
           }
 
