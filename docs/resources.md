@@ -25,5 +25,5 @@
 - [Recursive Descent Parser in OCaml](https://youtu.be/5RVyIP5p5aM)
 - [Fast Parser Combinator Library from Scratch in OCaml (no dependencies)](https://youtu.be/Y5IIXUBXvLs) &mdash; старенький стрим Тцкодинга, где он показывает как можно написать минимальную библиотечку парсеров комбинаторов. Для меня лично было откровением
 - [Пишем эмулятор Game Boy на OCaml](https://habr.com/ru/post/645237/) &mdash; перевод статьи чела, где он рассказывает как писал эмулятор и всё такое
-
+- [OCaml для хаскелиста](https://youtu.be/ESSCTskStgY?si=wUfbKydHDmxihXN4) серия докладов Юрия Горшкова
 
