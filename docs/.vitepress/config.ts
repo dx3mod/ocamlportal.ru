@@ -20,7 +20,9 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Система сборки Dune", link: "/tools/dune" },
-          { text: "Пакетный менеджер OPAM", link: "/tools/opam" }],
+          { text: "Пакетный менеджер OPAM", link: "/tools/opam" },
+          { text: "Ocamlformat", link: "/tools/ocamlformat" }
+        ],
       },
       {
         text: "Библиотеки",
