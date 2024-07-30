@@ -45,9 +45,15 @@ export default defineConfig({
             ]
           },
           {
-            text: "Парсеры", collapsed:false,items:[
+            text: "Парсеры", collapsed: false, items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
               { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
+            ]
+          },
+          {
+            text: "Concurrency", collapsed: false,
+            items: [
+              { text: "Lwt", link: "/libraries/concurrency/lwt" }
             ]
           }
 
