@@ -16,6 +16,7 @@ export default defineConfig({
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
       { text: "Мат. часть", link: "/theory" },
+      { text: "Рецепты", link: "/recipes" },
       {
         text: "Тулчейн",
         collapsed: false,

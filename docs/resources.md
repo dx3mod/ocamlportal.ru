@@ -10,6 +10,7 @@
 - [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/) &mdash; название говорит само за себя, описывается как использовать модуль [`Unix`](https://ocaml.org/manual/api/Unix.html), то есть классический unix интерфейс
 - [OCamlverse](http://ocamlverse.net/) &mdash; тоже самое, что и здесь, но больше, качественнее и не по ~~руззки~~
 - [Concurrent Programming with Effect Handlers](https://github.com/ocaml-multicore/ocaml-effects-tutorial) &mdash; руководство по конкурентном программированию в современном OCaml на базе эффектов
+- [OCaml Programming Guidelines](https://ocaml.org/docs/guidelines) &mdash; оф. гайдлайн по написанию программ
 
 #### Полезно
 
