@@ -17,6 +17,7 @@ export default defineConfig({
       { text: "Полезные ресурсы", link: "/resources" },
       { text: "Мат. часть", link: "/theory" },
       { text: "Рецепты", link: "/recipes" },
+      { text: "Сообщество", link: "/community" },
       {
         text: "Тулчейн",
         collapsed: false,
