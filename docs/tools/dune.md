@@ -93,3 +93,14 @@ Dune умеет в установку скомпилированных арте�
 
 Если вам нужно иметь внутри *компонента* древовидную структуру файлов, то об этом надо будет явно сообщить 
 посредством *строфы* [`include_subdirs`](https://dune.readthedocs.io/en/latest/reference/dune/include_subdirs.html). 
+
+## .opam.template
+
+Если вы используете автогенерацию `.opam` манифеста, то для добавления дополнительных значений (например, `pin-depends`) или переопределения существующих вам нужно создать *шаблонный* файл, который будет включаться в сгенерированный манифест. 
+
+Файл должен называться как `<пакет>.opam.template` (название аналогично `<пакет>.opam`).
+
+Из оф. документации:
+> (package) stanzas do not support all opam fields or complete syntax for dependency specifications. If the package you are adapting requires this, keep the corresponding opam fields in a pkg.opam.template file. See [Packages](https://dune.readthedocs.io/en/stable/reference/packages.html).
+
+Смотрите пример использования: [переопределение](https://github.com/mattjbray/ocaml-decoders/blob/master/decoders-msgpck.opam.template), [новые поля](https://github.com/dx3mod/repostbot/blob/master/repostbot.opam.template). 

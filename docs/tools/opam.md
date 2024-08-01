@@ -13,6 +13,7 @@
 ### Документация
 
 - [Using opam](https://opam.ocaml.org/doc/Usage.html) &mdash; всё что нужно знать, чтобы использовать;
+- Полный [мануал](https://opam.ocaml.org/doc/Manual.html) с описанием всех возможностей;
 
 ## Обновление пакетов
 
@@ -80,3 +81,18 @@ $ opam publish
 
 После того как вы исправите все свои косяки, ваш PR сольют с репозиторием и вы сможете установить 
 пакет обычным `opam install`. 
+
+## Зависимости
+
+### pin-depends
+
+Если вы хотите *запинить* зависимость в вашем пакете, то вы должно прописать поле `pin-depends` в ваш `.opam` манифест (для [Dune](./dune.md#opam-template) смотрите `.opam.template`).
+
+Пример добавления библиотеки [vkashka](../libraries/web/vkashka.md) с Git репозитория:
+```opam
+pin-depends: [
+  [ "vkashka.dev" "git+https://github.com/dx3mod/vkashka.git" ]
+]
+```
+
+Оф. документация: <https://opam.ocaml.org/doc/Manual.html#opamfield-pin-depends>.
