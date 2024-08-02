@@ -24,6 +24,7 @@ export default defineConfig({
         items: [
           { text: "Система сборки Dune", link: "/tools/dune" },
           { text: "Пакетный менеджер OPAM", link: "/tools/opam" },
+          { text: "Utop", link: "/tools/utop" },
           { text: "Ocamlformat", link: "/tools/ocamlformat" },
           { text: "Sherlodoc & Sherlocode", link: "/tools/sherlo" },
         ],
