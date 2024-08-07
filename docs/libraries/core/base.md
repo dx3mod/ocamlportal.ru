@@ -26,31 +26,29 @@
 
 Например:
 ```ocaml
-List.hd [];;
+utop # List.hd [];;
 (* - : 'a option/2 = None *)
 
-List.hd_exn [];;
+utop # List.hd_exn [];;
 (* Exception: Failure "hd". *)
 ```
 
 #### Backtrace recording по-умолчанию 
 
 В `Base` по-умолчанию включён *backtrace recording*, в отличие от стандартной библиотек.
-
 Почему это так можно прочитать [тут](https://discuss.ocaml.org/t/why-isnt-ocaml-recording-bactrace-by-default/9915/4).
 
 ### Полиморфное сравнение
 
-Оригинальные операторы сравнения OCaml являются операторами структурного сравнения представления данных 
-в во время исполнения, что не совсем то, что вы хотели бы.
+Оригинальные операторы сравнения (`=`, `>`, ...) являются операторами *структурного* сравнения представления данных в во время исполнения, что не совсем то, что вы хотели бы.
 
 Поэтому в Base операторы сравнения (глобально) работают только с `int`. Чтобы сравнивать другие типы
 вы должны явно использовать соответствующую функцию модуля или оператор. 
 
 Пример:
 ```ocaml
-String.equal "привет" "privet";;
-String.("привет" = "privet");;
+utop # String.equal "привет" "privet";;
+utop # String.("привет" = "privet");;
 ```
 
 В случае если необходим прям настоящий полиморфизм, то для этого есть модуль `Comparable`.
@@ -66,12 +64,12 @@ let max (type t) (module C : Comparable.S with type t = t) =
 
 Как пример:
 ```ocaml
-module M = struct
-  type t = { id : int; aliases : Set.M(String).t }
-  [@@deriving sexp, compare, hash]
-end
+utop # module M = struct
+        type t = { id : int; aliases : Set.M(String).t }
+        [@@deriving sexp, compare, hash]
+      end
 
-(* module M :
+module M :
   sig
     type t = { id : int; aliases : Base.Set.M(Base.String).t; }
     val t_of_sexp : Sexp.t -> t
@@ -80,7 +78,7 @@ end
     val hash_fold_t :
       Base_internalhash_types.state -> t -> Base_internalhash_types.state
     val hash : t -> int
-  end *)
+  end
 ```
 
 Пакет `ppx_jane` является эдаким мета-пакетом, в котором просто перечислены [зависимости](https://opam.ocaml.org/packages/ppx_jane/).

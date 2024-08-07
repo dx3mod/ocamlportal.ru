@@ -17,7 +17,7 @@ val map : f:('a -> 'b) -> 'a list -> 'b list
 
 Подобный подход лёг в основу некоторых альтернативных стандартных библиотек, вроде [`Base`](./libraries/core/base.md).
 
-## Каналы 
+## Channels 
 
 Канала (channels) это пара модулей (`In_channel` и `Out_channel`) из `Stdlib` для работы с файлами. 
 
@@ -32,8 +32,8 @@ val map : f:('a -> 'b) -> 'a list -> 'b list
 #### Пример
 
 ```ocaml
-let process_file filename = 
-  In_channel.with_open_text filename @@ fun ic -> (* ... *)
+let () = 
+  In_channel.with_open_text "some.file" @@ fun ic -> (* ... *)
 ```
 
 ## Backtrace recording
@@ -53,11 +53,9 @@ Printexc.record_backtrace true
 
 ### Результат 
 
-```ocaml
-(* до *)
+```
 Fatal error: exception Not_found
 
-(* после *)
 Fatal error: exception Not_found
 Raised at Dune__exe__Main in file "bin/main.ml", line 6, characters 8-23
 ```

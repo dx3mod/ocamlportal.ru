@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,8 +10,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: "favicon.ico",
     nav: [
-      { text: 'Главная', link: '/' },
-      { text: "Ментейнерам", link: "/maintainers" }
+      { text: "Главная", link: "/" },
+      { text: "Ментейнерам", link: "/maintainers" },
     ],
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
@@ -35,38 +35,48 @@ export default defineConfig({
         items: [
           { text: "Decoders", link: "/libraries/decoders" },
           {
-            text: "Core", link: "/libraries/core", collapsed: false, items: [
+            text: "Core",
+            link: "/libraries/core",
+            collapsed: false,
+            items: [
               { text: "Base", link: "/libraries/core/base" },
-              { text: "Command", link: "/libraries/core/command" }
-            ]
+              { text: "Command", link: "/libraries/core/command" },
+            ],
           },
           {
-            text: "Сеть", collapsed: false, items: [
+            text: "Сеть",
+            collapsed: false,
+            items: [
               { text: "Cohttp", link: "/libraries/web/cohttp" },
               { text: "Vkashka", link: "/libraries/web/vkashka" },
-            ]
+            ],
           },
           {
-            text: "Парсеры", collapsed: false, items: [
+            text: "Парсеры",
+            collapsed: false,
+            items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
               { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
-            ]
+            ],
           },
           {
-            text: "Concurrency", collapsed: false,
-            items: [
-              { text: "Lwt", link: "/libraries/concurrency/lwt" }
-            ]
-          }
-
-        ]
-      }
-
+            text: "Concurrency",
+            collapsed: false,
+            items: [{ text: "Lwt", link: "/libraries/concurrency/lwt" }],
+          },
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/dx3mod/ocamlportal.ru' },
-      { icon: "discord", link: "https://discord.gg/MJvmEsVXk8" }
-    ]
-  }
-})
+      { icon: "github", link: "https://github.com/dx3mod/ocamlportal.ru" },
+      { icon: "discord", link: "https://discord.gg/MJvmEsVXk8" },
+    ],
+  },
+  markdown: {
+    theme: {
+      light: "vitesse-light",
+      dark: "vitesse-dark",
+    },
+  },
+});
