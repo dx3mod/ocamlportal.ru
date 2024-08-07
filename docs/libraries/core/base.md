@@ -26,11 +26,11 @@
 
 Например:
 ```ocaml
-utop # List.hd [];;
-- : 'a option/2 = None
+List.hd [];;
+(* - : 'a option/2 = None *)
 
-utop # List.hd_exn [];;
-Exception: Failure "hd".
+List.hd_exn [];;
+(* Exception: Failure "hd". *)
 ```
 
 #### Backtrace recording по-умолчанию 
@@ -49,8 +49,8 @@ Exception: Failure "hd".
 
 Пример:
 ```ocaml
-utop # String.equal "привет" "privet";;
-utop # String.("привет" = "privet");;
+String.equal "привет" "privet";;
+String.("привет" = "privet");;
 ```
 
 В случае если необходим прям настоящий полиморфизм, то для этого есть модуль `Comparable`.
@@ -66,12 +66,12 @@ let max (type t) (module C : Comparable.S with type t = t) =
 
 Как пример:
 ```ocaml
-utop # module M = struct
-         type t = { id : int; aliases : Set.M(String).t }
-         [@@deriving sexp, compare, hash]
-       end
+module M = struct
+  type t = { id : int; aliases : Set.M(String).t }
+  [@@deriving sexp, compare, hash]
+end
 
-module M :
+(* module M :
   sig
     type t = { id : int; aliases : Base.Set.M(Base.String).t; }
     val t_of_sexp : Sexp.t -> t
@@ -80,7 +80,7 @@ module M :
     val hash_fold_t :
       Base_internalhash_types.state -> t -> Base_internalhash_types.state
     val hash : t -> int
-  end
+  end *)
 ```
 
 Пакет `ppx_jane` является эдаким мета-пакетом, в котором просто перечислены [зависимости](https://opam.ocaml.org/packages/ppx_jane/).

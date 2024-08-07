@@ -32,8 +32,8 @@ val map : f:('a -> 'b) -> 'a list -> 'b list
 #### Пример
 
 ```ocaml
-In_channel.with_open_text "some.txt" @@ fun ic -> 
-  In_channel.fold_lines ic (* ... *)
+let process_file filename = 
+  In_channel.with_open_text filename @@ fun ic -> (* ... *)
 ```
 
 ## Backtrace recording
