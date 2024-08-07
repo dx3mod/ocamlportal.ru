@@ -33,6 +33,12 @@ utop # List.hd_exn [];;
 Exception: Failure "hd".
 ```
 
+#### Backtrace recording по-умолчанию 
+
+В `Base` по-умолчанию включён *backtrace recording*, в отличие от стандартной библиотек.
+
+Почему это так можно прочитать [тут](https://discuss.ocaml.org/t/why-isnt-ocaml-recording-bactrace-by-default/9915/4).
+
 ### Полиморфное сравнение
 
 Оригинальные операторы сравнения OCaml являются операторами структурного сравнения представления данных 

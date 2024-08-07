@@ -35,3 +35,29 @@ val map : f:('a -> 'b) -> 'a list -> 'b list
 In_channel.with_open_text "some.txt" @@ fun ic -> 
   In_channel.fold_lines ic (* ... *)
 ```
+
+## Backtrace recording
+
+По-умолчанию отслеживание бектрейса исключений выключен из-за того, что это дополнительный оверхед. 
+
+Чтобы его включить можно воспользоваться переменной окружения, либо явно вызвать функцию в программе. 
+
+```sh
+# in shell 
+$ OCAMLRUNPARAM=b ocaml main.ml
+```
+```ocaml
+(* in code *)
+Printexc.record_backtrace true
+```
+
+### Результат 
+
+```ocaml
+(* до *)
+Fatal error: exception Not_found
+
+(* после *)
+Fatal error: exception Not_found
+Raised at Dune__exe__Main in file "bin/main.ml", line 6, characters 8-23
+```
