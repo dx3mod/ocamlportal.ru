@@ -6,6 +6,7 @@
         "ocamlportal",
         "opam",
         "Rpmfile",
+        "Stdlib",
         "struct",
         "utop",
         "Vkashka"
