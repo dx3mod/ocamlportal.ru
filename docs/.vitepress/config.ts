@@ -28,6 +28,7 @@ export default defineConfig({
           { text: "Backtrace recording", link: "/backtrace-recording" },
           { text: "Unsafe", link: "/unsafe" },
           { text: "Обработка ошибок", link: "/errors" },
+          { text: "Хвостовая рекурсия", link: "/tailcall" },
         ],
       },
       {
