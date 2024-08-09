@@ -16,8 +16,20 @@ export default defineConfig({
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
       { text: "Мат. часть", link: "/theory" },
-      { text: "Рецепты", link: "/recipes" },
       { text: "Сообщество", link: "/community" },
+      {
+        text: "Рецепты",
+        collapsed: true,
+        base: "/recipes/",
+        link: "/index",
+        items: [
+          { text: "Labels", link: "/labels" },
+          { text: "Channels", link: "/channels" },
+          { text: "Backtrace recording", link: "/backtrace-recording" },
+          { text: "Unsafe", link: "/unsafe" },
+          { text: "Обработка ошибок", link: "/errors" },
+        ],
+      },
       {
         text: "Тулчейн",
         collapsed: false,
@@ -37,7 +49,7 @@ export default defineConfig({
           {
             text: "Core",
             link: "/libraries/core",
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: "Base", link: "/libraries/core/base" },
               { text: "Command", link: "/libraries/core/command" },
@@ -45,7 +57,7 @@ export default defineConfig({
           },
           {
             text: "Сеть",
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: "Cohttp", link: "/libraries/web/cohttp" },
               { text: "Vkashka", link: "/libraries/web/vkashka" },
@@ -53,7 +65,7 @@ export default defineConfig({
           },
           {
             text: "Парсеры",
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
               { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
@@ -61,7 +73,7 @@ export default defineConfig({
           },
           {
             text: "Concurrency",
-            collapsed: false,
+            collapsed: true,
             items: [{ text: "Lwt", link: "/libraries/concurrency/lwt" }],
           },
         ],

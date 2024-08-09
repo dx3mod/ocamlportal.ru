@@ -34,7 +34,7 @@ utop # List.hd_exn [];;
 ```
 
 > [!NOTE] Backtrace recording 
-> В Base по-умолчанию **включён** [backtrace recording](../../recipes.md#backtrace-recording), в отличие от стандартной библиотек.
+> В Base по-умолчанию **включён** [backtrace recording](../../recipes/backtrace-recording.md), в отличие от стандартной библиотек.
 > Почему это так можно прочитать [тут](https://discuss.ocaml.org/t/why-isnt-ocaml-recording-bactrace-by-default/9915/4).
 
 ### Полиморфное сравнение
