@@ -71,6 +71,37 @@ let () =
 
 Это актуально не только для библиотек, но и при разработки приложений.
 
+## Eio бекенд
+
+::: details Всем новичкам посвящается
+
+Как выглядит любой, кто захотел уйти с [Lwt](../concurrency/lwt.md) на современный мульткор на базе эффектов.
+
+![](../../public/memes/meme_multicore.png){width=60%}
+
+:::
+
+> [!WARNING] Использовать ли в продакшене?
+> Какой-либо документации по использованию Eio-бекенда нету, на GitHub можно найти [много issue](https://github.com/mirage/ocaml-cohttp/issues?q=is%3Aissue+is%3Aopen+eio) связанные с ним. Поэтому использовать только на свой страх и риск, хотя должно быть всё стабильно. Пока что экосистема сырая.
+
+Примеры использования можно найти тут: <https://github.com/mirage/ocaml-cohttp/tree/master/cohttp-eio/examples>.
+
+### HTTPS
+
+> [!NOTE] Зависимости
+>
+> - `tls-eio` (либо билдинги к `eio-ssl`, если вообще возможно)
+> - `mirage-crypto-rng-eio`
+
+Для работы TLS требуется сертификат:
+
+```ocaml
+let null_auth ?ip:_ ~host:_ _ =
+  Ok None (* Warning: use a real authenticator in your code! *)
+```
+
+Чтобы загрузить системный используется библиотека [ca-certs](https://github.com/mirage/ca-certs/blob/main/lib/ca_certs.mli).
+
 ## Related
 
 Хотелось бы иметь иметь потоковый JSON-парсер для `Lwt_stream`, но оного я не нашёл в экосистеме
