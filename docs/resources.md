@@ -2,24 +2,30 @@
 
 <br>
 
-#### Мастхев
+## Мастхев
 
 - Во-первых сам [официальный сайт](https://ocaml.org/), там можно найти очень многое
 - [OCaml Programming: Correct + Efficient + Beautiful](https://cs3110.github.io/textbook/cover.html)
 - [Real World OCaml](https://dev.realworldocaml.org/), RWO &mdash; настольная книжка любого окемлиста, описывает всё, что вам надо знать, чтобы писать прикладной код
 - [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/) &mdash; название говорит само за себя, описывается как использовать модуль [`Unix`](https://ocaml.org/manual/api/Unix.html), то есть классический unix интерфейс
 - [OCamlverse](http://ocamlverse.net/) &mdash; тоже самое, что и здесь, но больше, качественнее и не по ~~руззки~~
-- [Concurrent Programming with Effect Handlers](https://github.com/ocaml-multicore/ocaml-effects-tutorial) &mdash; руководство по конкурентном программированию в современном OCaml на базе эффектов
+
 - [OCaml Programming Guidelines](https://ocaml.org/docs/guidelines) &mdash; оф. гайдлайн по написанию программ
 
-#### Полезно
+### Multicore
+
+- [Concurrent Programming with Effect Handlers](https://github.com/ocaml-multicore/ocaml-effects-tutorial) &mdash; руководство по конкурентном программированию на базе эффектов
+  - [Примеры](https://github.com/ocaml-multicore/effects-examples)
+- [Parallel Programming in Multicore OCam](https://github.com/ocaml-multicore/parallel-programming-in-multicore-ocaml) &mdash; параллельное программирование
+
+## Полезно
 
 - [Memory allocation in OCaml and beyond](https://youtu.be/Jwxs5rqTdN4?si=fiQUP-AyoX34gzZu)
 - [Practical OCaml](https://practicalocaml.com/)
 - <https://fairyland-ocaml.github.io/>
 - [Binding C libraries in OCaml with the dune ctypes stanza](https://michael.bacarella.com/2022/02/19/dune-ctypes/)
 
-#### Всякое
+## Всякое
 
 - [Porting OCaml to the nRF52 Microcontroller](https://youtu.be/Y8matl68AzI?si=9OpKnDCcIpbdyeGX) &mdash; выступление про то, как портировали байткод на МК
 - [Writing our own parser in OCaml!](https://youtu.be/dycsRSOQjho?si=T3mWUdzS9v9EQj_C)
