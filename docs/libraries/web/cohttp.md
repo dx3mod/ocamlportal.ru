@@ -71,7 +71,7 @@ let () =
 
 Это актуально не только для библиотек, но и при разработки приложений.
 
-## Eio бекенд
+## [Eio](../concurrency/eio.md)-бекенд
 
 ::: details Всем новичкам посвящается
 
@@ -82,25 +82,56 @@ let () =
 :::
 
 > [!WARNING] Использовать ли в продакшене?
-> Какой-либо документации по использованию Eio-бекенда нету, на GitHub можно найти [много issue](https://github.com/mirage/ocaml-cohttp/issues?q=is%3Aissue+is%3Aopen+eio) связанные с ним. Поэтому использовать только на свой страх и риск, хотя должно быть всё стабильно. Пока что экосистема сырая.
+> Вполне стабильно, но какой-либо документации по использованию Eio-бекенда нету. На GitHub [не так много issue](https://github.com/mirage/ocaml-cohttp/issues?q=is%3Aissue+is%3Aopen+eio) связанных с ним. Разбираться со всем придётся самостоятельно, либо просить помощи на [форуме](../../community.md).
 
 Примеры использования можно найти тут: <https://github.com/mirage/ocaml-cohttp/tree/master/cohttp-eio/examples>.
 
 ### HTTPS
 
+Для настройки шифрования потребуется дополнительные телодвижение в отличие от стандартаного `unix`-бекенда, где всё работает из коробки.
+
 > [!NOTE] Зависимости
 >
-> - `tls-eio` (либо билдинги к `eio-ssl`, если вообще возможно)
+> - `tls-eio` &mdash; OCaml-реализация TLS
 > - `mirage-crypto-rng-eio`
+> - `ca-certs` &mdash; для загрузки системного сертификата
 
-Для работы TLS требуется сертификат:
-
-```ocaml
-let null_auth ?ip:_ ~host:_ _ =
-  Ok None (* Warning: use a real authenticator in your code! *)
-```
-
-Чтобы загрузить системный используется библиотека [ca-certs](https://github.com/mirage/ca-certs/blob/main/lib/ca_certs.mli).
+> [!NOTE] Пример HTTP-клиента
+>
+> ```ocaml
+> open Cohttp_eio
+>
+> let https =
+>   (* Загрузка системного (корневого) сертификата.  *)
+>   let authenticator = Ca_certs.authenticator () |> Result.get_ok in
+>   let tls_config = Tls.Config.client ~authenticator () in
+>   fun uri raw ->
+>     let host =
+>       Uri.host uri
+>       |> Option.map (fun x -> Domain_name.(host_exn (of_string_exn x)))
+>     in
+>     Tls_eio.client_of_flow ?host tls_config raw
+>
+> let main env =
+>   let client = Client.make ~https:(Some https) env#net in
+>   (* Switch управляет ресурсами, поэтому каждый запрос должен использовать новый switch. *)
+>   Eio.Switch.run @@ fun sw ->
+>   let resp, body =
+>     Client.get ~sw client (Uri.of_string "https://example.com")
+>   in
+>   (* ... *)
+>   if Http.Status.compare resp.status `OK = 0 then
+>     (* Чтение тела из потока. *)
+>     print_string @@ Eio.Buf_read.(parse_exn take_all) body ~max_size:max_int
+>   else Fmt.epr "Unexpected HTTP status: %a" Http.Status.pp resp.status
+>
+> let () =
+>   Eio_main.run @@ fun env ->
+>   Mirage_crypto_rng_eio.run (module Mirage_crypto_rng.Fortuna) env @@ fun () ->
+>   main env
+> ```
+>
+> Если вы планируете обращаться только к _одному_ сервису, то можно убрать парсинг хоста и передавать в `Tls_eio.client_of_flow` просто константу.
 
 ## Related
 
