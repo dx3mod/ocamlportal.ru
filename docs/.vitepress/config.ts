@@ -69,7 +69,10 @@ export default defineConfig({
             collapsed: true,
             items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
-              { text: "Eio.Buf_read", link: "/libraries/concurrency/eio#buf_read" },
+              {
+                text: "Eio.Buf_read",
+                link: "/libraries/concurrency/eio#buf_read",
+              },
               { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
             ],
           },
@@ -89,6 +92,10 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/dx3mod/ocamlportal.ru" },
       { icon: "discord", link: "https://discord.gg/MJvmEsVXk8" },
     ],
+
+    search: {
+      provider: "local",
+    },
   },
   markdown: {
     theme: {
