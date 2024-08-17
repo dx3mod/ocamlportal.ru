@@ -69,13 +69,17 @@ export default defineConfig({
             collapsed: true,
             items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
+              { text: "Eio.Buf_read", link: "/libraries/concurrency/eio#buf_read" },
               { text: "Rpmfile", link: "/libraries/parsers/rpmfile" },
             ],
           },
           {
             text: "Concurrency",
             collapsed: true,
-            items: [{ text: "Lwt", link: "/libraries/concurrency/lwt" }],
+            items: [
+              { text: "Lwt", link: "/libraries/concurrency/lwt" },
+              { text: "Eio", link: "/libraries/concurrency/eio" },
+            ],
           },
         ],
       },
