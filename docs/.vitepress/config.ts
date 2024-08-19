@@ -29,6 +29,7 @@ export default defineConfig({
           { text: "Unsafe", link: "/unsafe" },
           { text: "Обработка ошибок", link: "/errors" },
           { text: "Хвостовая рекурсия", link: "/tailcall" },
+          { text: "Конструкторы", link: "/constructor" },
         ],
       },
       {
