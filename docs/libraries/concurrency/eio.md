@@ -25,3 +25,27 @@ let of_flow ~initial_size ~max_size flow =
 ```
 
 [Eio]: https://github.com/ocaml-multicore/eio
+
+### signed/unsigned integers
+
+| Тип      | Знаковость |
+| -------- | ---------- |
+| `uint8`  | unsigned   |
+| `uint16` | unsigned   |
+| `uint32` | signed     |
+| `uint64` | signed     |
+
+Почему `uint32` и `uint64` знаковые, но помечены как unsigned? У автора по этому безумные [шизомысли](https://discuss.ocaml.org/t/rpmfile-library-v0-3-0-with-new-eio-based-reader/15149/6).
+
+> [!NOTE] Знаковый int8 и int16 своими руками
+>
+> ```ocaml
+> module R = struct
+>   include Eio.Buf_read
+>
+>   (* Простой способ, но не самый эффективный. *)
+>
+>   let int8 = map (Fun.flip String.get_int8 0) (take 1)
+>   let int16_be = map (Fun.flip String.get_int16_be 0) (take 2)
+> end
+> ```
