@@ -24,6 +24,7 @@
 - [Practical OCaml](https://practicalocaml.com/)
 - <https://fairyland-ocaml.github.io/>
 - [Binding C libraries in OCaml with the dune ctypes stanza](https://michael.bacarella.com/2022/02/19/dune-ctypes/)
+- [Introductory Data Structures and Algorithms](https://ilyasergey.net/YSC2229/)
 
 ## Всякое
 
