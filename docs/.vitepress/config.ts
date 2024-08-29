@@ -41,6 +41,7 @@ export default defineConfig({
           { text: "Utop", link: "/tools/utop" },
           { text: "Ocamlformat", link: "/tools/ocamlformat" },
           { text: "Sherlodoc & Sherlocode", link: "/tools/sherlo" },
+          { text: "Тулчейн OCaml", link: "/tools/ocaml" },
         ],
       },
       {
