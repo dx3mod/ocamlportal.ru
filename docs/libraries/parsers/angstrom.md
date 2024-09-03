@@ -7,9 +7,8 @@
 > [!NOTE] Смотрите также 
 > - [Eio.Buf_read](../concurrency/eio.md#buf_read) &mdash; Angstrom-like набор комбинаторов для разбора потоковых данных
 
-## Видео
 
-Специально для `ocamlportal.ru` записана сессия live-кодинга для демонстрации 
-использования Angstrom в примере разбора RPM-пакетов.
+## Примеры 
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tsI-ZypQ9O0?si=tlN-mbSWb1oba6Pl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+- [Live-кодинг парсера RPM-пакетов](https://www.youtube-nocookie.com/embed/tsI-ZypQ9O0?si=tlN-mbSWb1oba6P)
+- [Простой парсер файла `/etc/passwd`](https://gist.github.com/dx3mod/6eec9dfe6df8eefbb8de5c8a36e5b4d9)
