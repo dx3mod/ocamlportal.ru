@@ -19,7 +19,7 @@ export default defineConfig({
       { text: "Сообщество", link: "/community" },
       {
         text: "Рецепты",
-        collapsed: true,
+        collapsed: false,
         base: "/recipes/",
         link: "/index",
         items: [
