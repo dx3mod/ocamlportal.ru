@@ -30,6 +30,7 @@ export default defineConfig({
           { text: "Обработка ошибок", link: "/errors" },
           { text: "Хвостовая рекурсия", link: "/tailcall" },
           { text: "Конструкторы", link: "/constructor" },
+          { text: "Параметры выполнения", link: "/runparams" },
         ],
       },
       {
