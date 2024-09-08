@@ -31,6 +31,7 @@ export default defineConfig({
           { text: "Хвостовая рекурсия", link: "/tailcall" },
           { text: "Конструкторы", link: "/constructor" },
           { text: "Параметры выполнения", link: "/runparams" },
+          { text: "Performance", link: "/performance" },
         ],
       },
       {
