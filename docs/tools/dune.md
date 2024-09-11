@@ -6,6 +6,7 @@
 >
 > - [Официальный сайт проекта](https://dune.build)
 > - Стартовый туториал [Quick start](https://dune.readthedocs.io/en/stable/quick-start.html)
+> - [Гайды OCaml Platform](https://ocaml.org/docs/bootstrapping-a-dune-project)
 
 > [!IMPORTANT] Управление зависимостями
 > Стоит понимать, Dune не занимается управлением пакетами (зависимостями).

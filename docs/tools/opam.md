@@ -10,10 +10,11 @@
 ![](https://i.ibb.co/Q6YSgG3/photo-2024-07-05-23-01-27.jpg)
 :::
 
-### Документация
-
-- [Using opam](https://opam.ocaml.org/doc/Usage.html) &mdash; всё что нужно знать, чтобы использовать;
-- Полный [мануал](https://opam.ocaml.org/doc/Manual.html) с описанием всех возможностей;
+> [!NOTE] Документация
+> 
+> - [Управление зависимостями](https://ocaml.org/docs/managing-dependencies)
+> - [Using opam](https://opam.ocaml.org/doc/Usage.html) &mdash; всё что нужно знать, чтобы использовать
+> - Полный [мануал](https://opam.ocaml.org/doc/Manual.html) с описанием всех возможностей
 
 ## Обновление пакетов
 
