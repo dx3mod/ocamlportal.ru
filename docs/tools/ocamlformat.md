@@ -6,7 +6,7 @@
 > [!NOTE] Документация
 > 
 > - [Manual](https://ocaml.org/p/ocamlformat/latest/doc/index.html)
-> - [Getting started]()
+> - [Getting started](https://ocaml.org/p/ocamlformat/latest/doc/getting_started.html)
 > - [Frequently asked questions](https://ocaml.org/p/ocamlformat/latest/doc/faq.html)
 
 ## В Dune-проекте
