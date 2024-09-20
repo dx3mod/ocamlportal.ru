@@ -1,8 +1,13 @@
 # ocamlformat
 
 [ocamlformat] &mdash; инструмент для автоматического форматирование исходного кода на языке OCaml,
-является частью [OCaml Platform](https://ocaml.org/platform). Имеет гибкую конфигурацию и профили,
-умеет форматировать комментарии.
+является частью [OCaml Platform](https://ocaml.org/platform). Имеет профили и умеет форматировать комментарии.
+
+> [!NOTE] Документация
+> 
+> - [Manual](https://ocaml.org/p/ocamlformat/latest/doc/index.html)
+> - [Getting started]()
+> - [Frequently asked questions](https://ocaml.org/p/ocamlformat/latest/doc/faq.html)
 
 ## В Dune-проекте
 
@@ -23,7 +28,7 @@ $ dune fmt -w
 ## Вне проекта
 
 ```sh
-$ ocamlformat --enable-outside-detected-project -i *.ml
+$ ocamlformat --enable-outside-detected-project -i *.m{l,li}
 ```
 
 [ocamlformat]: https://github.com/ocaml-ppx/ocamlformat
