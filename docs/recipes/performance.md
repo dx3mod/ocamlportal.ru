@@ -7,6 +7,10 @@
 > 
 > - [OCaml guide: Profiling](https://ocaml.org/docs/profiling) 
 
+## Сборка с оптимизациями 
+
+Смотрите [Release-сборка проекта](../tools/dune.md#release-сборка-проекта) и [flambda](https://ocaml.org/manual/flambda.html).
+
 ## Склейка строк
 
 Если вам требуется склеить больше двух строк &mdash; не используйте оператор `Stdlib.(^)`.
