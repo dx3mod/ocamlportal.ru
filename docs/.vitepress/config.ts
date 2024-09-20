@@ -95,6 +95,13 @@ export default defineConfig({
               { text: "Ctypes", link: "/libraries/ffi/ctypes" },
             ],
           },
+          {
+            text: "Графика",
+            collapsed: false,
+            items: [
+              { text: "Tdl", link: "/libraries/graphics/tdl" },
+            ],
+          },
         ],
       },
     ],
