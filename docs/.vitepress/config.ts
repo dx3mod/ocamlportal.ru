@@ -54,7 +54,7 @@ export default defineConfig({
           {
             text: "Core",
             link: "/libraries/core",
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: "Base", link: "/libraries/core/base" },
               { text: "Command", link: "/libraries/core/command" },
@@ -62,7 +62,7 @@ export default defineConfig({
           },
           {
             text: "Сеть",
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: "Cohttp", link: "/libraries/web/cohttp" },
               { text: "Vkashka", link: "/libraries/web/vkashka" },
@@ -70,7 +70,7 @@ export default defineConfig({
           },
           {
             text: "Парсеры",
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: "Angstrom", link: "/libraries/parsers/angstrom" },
               {
@@ -82,7 +82,7 @@ export default defineConfig({
           },
           {
             text: "Concurrency",
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: "Lwt", link: "/libraries/concurrency/lwt" },
               { text: "Eio", link: "/libraries/concurrency/eio" },
