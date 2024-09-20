@@ -30,6 +30,7 @@
 - [Practical OCaml](https://practicalocaml.com/)
 - <https://fairyland-ocaml.github.io/>
 - [Introductory Data Structures and Algorithms](https://ilyasergey.net/YSC2229/)
+- [OCaml Dockerfile build from scratch](https://dev.to/iamjcchan/ocaml-dockerfile-build-from-scratch-32in)
 
 ## Всякое
 
