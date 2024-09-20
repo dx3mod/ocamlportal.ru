@@ -18,13 +18,17 @@
   - [Примеры](https://github.com/ocaml-multicore/effects-examples)
 - [Parallel Programming in Multicore OCam](https://github.com/ocaml-multicore/parallel-programming-in-multicore-ocaml) &mdash; параллельное программирование
 
+### FFI
+
+- [How to call C functions from OCaml](http://decapode314.free.fr/ocaml/ocaml-c-interface.html) &mdash; наглядное руководству по написанию C stub
+- [Binding C libraries in OCaml with the dune ctypes stanza](https://michael.bacarella.com/2022/02/19/dune-ctypes/)
+- [Simple Example where Ocaml calls a C function](https://srctxt.com/2024/basic-ocaml-ffi_20240828121852.html)
+
 ## Полезно
 
 - [Memory allocation in OCaml and beyond](https://youtu.be/Jwxs5rqTdN4?si=fiQUP-AyoX34gzZu)
 - [Practical OCaml](https://practicalocaml.com/)
 - <https://fairyland-ocaml.github.io/>
-- [Binding C libraries in OCaml with the dune ctypes stanza](https://michael.bacarella.com/2022/02/19/dune-ctypes/)
-- [Simple Example where Ocaml calls a C function](https://srctxt.com/2024/basic-ocaml-ffi_20240828121852.html)
 - [Introductory Data Structures and Algorithms](https://ilyasergey.net/YSC2229/)
 
 ## Всякое
