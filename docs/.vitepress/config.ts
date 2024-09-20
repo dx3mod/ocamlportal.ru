@@ -88,6 +88,13 @@ export default defineConfig({
               { text: "Eio", link: "/libraries/concurrency/eio" },
             ],
           },
+          {
+            text: "FFI",
+            collapsed: false,
+            items: [
+              { text: "Ctypes", link: "/libraries/ffi/ctypes" },
+            ],
+          },
         ],
       },
     ],
