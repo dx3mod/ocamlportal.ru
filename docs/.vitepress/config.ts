@@ -35,6 +35,14 @@ export default defineConfig({
         ],
       },
       {
+        text: "Внутренности",
+        collapsed: false,
+        base: "/internals/",
+        items: [
+          { text: "Встроенные примитивы", link: "/builtin" },
+        ]
+      },
+      {
         text: "Тулчейн",
         collapsed: false,
         items: [
