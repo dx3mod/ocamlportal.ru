@@ -32,6 +32,7 @@ export default defineConfig({
           { text: "Конструкторы", link: "/constructor" },
           { text: "Параметры выполнения", link: "/runparams" },
           { text: "Performance", link: "/performance" },
+          { text: "Публикация пакета", link: "/publish-package" },
         ],
       },
       {
