@@ -7,3 +7,9 @@
 ```sh
 $ opam search ocaml-options-
 ```
+
+### Установка flambda 
+
+```sh
+$ opam switch create releasebuild 5.2.0+options ocaml-option-flambda
+```
