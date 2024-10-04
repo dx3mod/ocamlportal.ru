@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Хвостовая рекурсия
 
 > [!NOTE] Из Википедии
@@ -52,7 +56,11 @@ let reverse list =
 > - `aux` от слова auxiliary
 > - `go` если вы знакомы с Haskell :)
 
-## Аннотация
+## Аннотации 
+
+Про аннотации смотрите в [мануале](https://ocaml.org/manual/attributes.html).
+
+### `tailcall`
 
 Аннотация `tailcall` может быть применена к применению функции, чтобы проверить, что вызов оптимизирован для хвостовой рекурсии. Если это не так, выдается предупреждение.
 
@@ -69,4 +77,7 @@ let rec not_a_tail_call = function
 (* Warning 51 [wrong-tailcall-expectation]:  *)
 ```
 
-Про аннотации смотрите в [мануале](https://ocaml.org/manual/attributes.html).
+### `tail_mod_cons`
+
+> [!NOTE] Документация
+> [The “Tail Modulo Constructor” program transformation](https://ocaml.org/manual/tail_mod_cons.html)
