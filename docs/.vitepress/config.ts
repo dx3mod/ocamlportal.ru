@@ -33,6 +33,7 @@ export default defineConfig({
           { text: "Параметры выполнения", link: "/runparams" },
           { text: "Performance", link: "/performance" },
           { text: "Публикация пакета", link: "/publish-package" },
+          { text: "Без Stdlib", link: "/without-stdlib" },
         ],
       },
       {

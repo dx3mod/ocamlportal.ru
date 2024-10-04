@@ -3,6 +3,7 @@
         "Cohttp",
         "Ctypes",
         "endline",
+        "nostdlib",
         "ocamlformat",
         "ocamlportal",
         "opam",
