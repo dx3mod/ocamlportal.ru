@@ -61,6 +61,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Decoders", link: "/libraries/decoders" },
+          { text: "Iter", link: "/libraries/iter" },
           {
             text: "Core",
             link: "/libraries/core",
