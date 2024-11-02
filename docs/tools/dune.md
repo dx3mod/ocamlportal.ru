@@ -41,13 +41,13 @@ outline: deep
 > которых является распространенной практикой. 
 >
 > Пример из [Lwt](../libraries/concurrency/lwt.md):
-> ```dune
+> ```
 > (library
 >  (name lwt_unix)
 >  (public_name lwt.unix)
 > ```
 > Пример из [Cohttp](../libraries/web/cohttp.md):
-> ```dune
+> ```
 > (library
 >  (name cohttp_eio)
 >  (public_name cohttp-eio)
@@ -59,7 +59,7 @@ outline: deep
 Если вы пишите библиотечный пакет и хотите иметь несколько "приватных" компонентов, 
 от которых зависите, то вам надо прописать к какому пакету относятся эти компоненты.
 
-```dune
+```
 (package <package-name>)
 ```
 
@@ -77,14 +77,14 @@ outline: deep
 ```
 
 `lib/dune`
-```dune
+```
 (library
  (public_name hello_world)
  (libraries foo))
 ```
 
 `foo/dune`
-```dune
+```
 (library
   (name foo)
   (package hello_world))
@@ -102,13 +102,13 @@ outline: deep
 :::details Пример 
 
 `lib/dune`
-```dune
+```
 (library
  (public_name foo))
 ```
 
 `bin/dune`
-```dune
+```
 (executable
  (name main)
  (public_name foo)
@@ -116,7 +116,7 @@ outline: deep
 ```
 
 `dune-project`
-```dune
+```
 ...
 (package
  (name foo)
@@ -157,7 +157,7 @@ Fatal error: exception Sys_error("data.test.txt: No such file or directory") # [
 
 Для исправления этого в файле `dune` вы должны указать зависимости в поле `deps`.
 
-```dune
+```
 (test
  (name test_demo)
  (deps data.test.txt)) // [!code ++]
@@ -171,7 +171,7 @@ Dune умеет в установку скомпилированных арте�
 
 Для этого существует _строфа_ `install` в `dune` файле. Пример:
 
-```dune
+```
 (install
  (files hello.txt)
  (section share)

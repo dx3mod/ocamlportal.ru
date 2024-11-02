@@ -91,7 +91,7 @@ $ opam switch create . --deps-only
 
 Пример добавления библиотеки [vkashka](../libraries/web/vkashka.md) с Git репозитория:
 
-```opam
+```
 pin-depends: [
   [ "vkashka.dev" "git+https://github.com/dx3mod/vkashka.git" ]
 ]
