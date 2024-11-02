@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Cohttp для HTTP клиентов и серверов
 
 [Cohttp] &mdash; решение для работы с HTTP: создание сетевых демонов, клиентов и сервер.
@@ -31,9 +35,11 @@ let () =
 
 Более комплексный пример можно найти всё в том же RWO, [Searching Definitions with DuckDuckGo](http://dev.realworldocaml.org/concurrent-programming.html#example-searching-definitions-with-duckduckgo).
 
-## Рекомендации по использованию
+## Lwt-бекенд
 
-Используйте Cohttp в своих модулях, руководствуясь принципом инверсии зависимостей! Внедрять зависимости можно посредством [функторов](https://ocaml.org/docs/functors#injecting-dependencies-using-functors).
+### Рекомендации по использованию
+
+Старайтесь использоваться `cohttp-lwt` в своих модулях, руководствуясь принципом инверсии зависимостей! Внедрять зависимости можно посредством [функторов](https://ocaml.org/docs/functors#injecting-dependencies-using-functors).
 
 > [!NOTE] Библиотека-враппер API сервиса
 >
@@ -67,9 +73,21 @@ let () =
 >     (Cohttp_lwt_unix.Client)
 > ```
 >
-> Как вы видите, разработчик сам выбирает какую реализацию использовать.
+> Как вы видите, разработчик сам выбирает какую реализацию использовать, 
+> что актуально для желающих засунуть свой код в [MirageOS].
 
 Это актуально не только для библиотек, но и при разработки приложений.
+
+### HTTPS
+
+Для работы шифрованного обмена трафика у вас должен быть установлен один из пакетов:
+[`lwt_ssl`](https://github.com/ocsigen/lwt_ssl) или [`tls-lwt`](https://github.com/mirleft/ocaml-tls). Первый является биндингом к OpenSSL, второй же полностью реализован на OCaml, что добавляет в переносимости, но существенно увеличивает размер бинарника и возможно несколько снижает производительность.
+
+> [!NOTE] Смотрите также 
+> Подобная вариация существует благодаря библиотеке [conduit](https://github.com/mirage/ocaml-conduit), 
+> которая обеспечивает некоторую степень абстракции от конкретной используемой библиотеки SSL. 
+>
+> К сожалению, для multcore (aka Eio, Miou и т.д..) пока подобного нет.
 
 ## [Eio](../concurrency/eio.md)-бекенд
 
@@ -147,3 +165,4 @@ let () =
 - [Httpaf](https://github.com/inhabitedtype/httpaf) ныне мёртв, но вроде как завершён
 
 [Cohttp]: https://github.com/mirage/ocaml-cohttp
+[MirageOS]: https://mirage.io/
