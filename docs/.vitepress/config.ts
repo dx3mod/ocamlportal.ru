@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-
+import { ru } from './ru'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ocamlportal",
@@ -9,6 +9,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "favicon.ico",
+    outlineTitle: 'Содержание',
     nav: [
       { text: "Главная", link: "/" },
       { text: "Ментейнерам", link: "/maintainers" },
@@ -128,8 +129,9 @@ export default defineConfig({
   },
   markdown: {
     theme: {
-      light: "vitesse-light",
-      dark: "vitesse-dark",
+      light: "kanagawa-lotus",
+      dark: "kanagawa-dragon",
     },
   },
+
 });
