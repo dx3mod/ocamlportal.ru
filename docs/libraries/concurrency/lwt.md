@@ -1,8 +1,11 @@
 # Lwt
 
-[Lwt](https://github.com/ocsigen/lwt) &mdash; библиотека для конкурентного программирования, посредством [*промисов*](https://cs3110.github.io/textbook/chapters/ds/promises.html). Помимо возможностей асинхронного взаимодействия с вводом-вывода (I/O), позволяет распараллелить этот процесс.
+[Lwt](https://github.com/ocsigen/lwt) &mdash; самая полярная библиотека для асинхронного программирования посредством [*промисов*](https://cs3110.github.io/textbook/chapters/ds/promises.html) для не multicore OCaml. Под капотом использует [libev].
 
-[Основное руководство](http://ocsigen.org/lwt/latest/manual/manual) находится на сайте Ocsigen и переодически обновляется.
+[Основное руководство](http://ocsigen.org/lwt/latest/manual/manual) находится на сайте [Ocsigen]. Помимо этого библиотека
+хорошо документирована в коде, как для просто юзеров, так и внутренние вещи.
+
+Также активно используется в среде [MirageOS].
 
 ## Пример
 
@@ -43,3 +46,8 @@ let () =
   (* ... *)
   send_message "some text";%lwt
   ```
+
+
+[MirageOS]: https://mirage.io/ 
+[Ocsigen]: https://ocsigen.org/home/intro.html
+[libev]: http://software.schmorp.de/pkg/libev.html
