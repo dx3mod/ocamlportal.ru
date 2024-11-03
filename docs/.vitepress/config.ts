@@ -35,6 +35,8 @@ export default defineConfig({
           { text: "Performance", link: "/performance" },
           { text: "Публикация пакета", link: "/publish-package" },
           { text: "Без Stdlib", link: "/without-stdlib" },
+          { text: "Освобождение ресурсов", link: "/dispose-resources" },
+
         ],
       },
       {
