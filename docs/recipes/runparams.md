@@ -4,7 +4,7 @@
 > 
 > - [The runtime system](https://ocaml.org/manual/runtime.html)
 
-### Вывод информации о работе сборщика мусора
+## Вывод информации о работе сборщика мусора
 
 ```sh
 $ OCAMLRUNPARAM="v=1024" _build/.../main.exe
@@ -26,3 +26,7 @@ top_heap_words: 252171
 mean_space_overhead: 61.761102
 ```
 :::
+
+## Захват backtrace'а исключений
+
+Смотрите рецепт [Backtrace recording](./backtrace-recording.md).
