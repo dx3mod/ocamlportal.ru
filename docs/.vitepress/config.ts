@@ -80,6 +80,7 @@ export default defineConfig({
             items: [
               { text: "Cohttp", link: "/libraries/web/cohttp" },
               { text: "Vkashka", link: "/libraries/web/vkashka" },
+              { text: "Nats", link: "/libraries/web/nats-ocaml" },
             ],
           },
           {
