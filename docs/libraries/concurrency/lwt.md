@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Lwt
 
 [Lwt](https://github.com/ocsigen/lwt) &mdash; самая полярная библиотека для асинхронного программирования посредством [*промисов*](https://cs3110.github.io/textbook/chapters/ds/promises.html) для не multicore OCaml. Под капотом использует [libev].
@@ -38,15 +42,41 @@ let () =
 (* ocamlfind opt -package lwt.unix -linkpkg example.ml && ./a.out *)
 ```
 
-## Полезности
+## Ppx
 
-- Препроцессинг для `do`-подобного синтаксиса ([`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt)):
-  ```ocaml
-  let%lwt user = get_user_from_api "dad" in
+Препроцессинг для `do`-подобного синтаксиса ([`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt)):
+```ocaml
+let%lwt user = get_user_from_api "dad" in
+(* ... *)
+send_message "some text";%lwt
+```
+
+## Switches
+
+> [!NOTE] Смотрите также
+> - Рецепт по [освобождения ресурсов](../../recipes/dispose-resources.md)
+> - Применение в библиотеке [nats.ocaml](../web/nats-ocaml.md)
+
+Библиотека Lwt предоставляет удобную абстракцию под названием [switches](https://ocsigen.org/lwt/latest/api/Lwt_switch) 
+(свитчи), эдакая область видимости, к которой мы привязываем ресурсы, и по выходу из которой они будут 
+освобождены, даже в случае исключения. 
+
+Интерфейс модуля построен так, что он должен быть использован внутри функций с опциональными параметрами.
+
+```ocaml
+let connect ?switch uri = 
+  let%lwt conn = open_connection uri in 
   (* ... *)
-  send_message "some text";%lwt
-  ```
+  Lwt_switch.add_hock switch (fun () -> close_connection conn);
+  (* ... *)
+```
 
+```ocaml
+let _ = 
+  Lwt_switch.with_switch @@ fun switch ->
+  let%lwt conn_a = connect ?switch uri in 
+  let%lwt conn_b = connect ?switch uri in (* ... *)
+```
 
 [MirageOS]: https://mirage.io/ 
 [Ocsigen]: https://ocsigen.org/home/intro.html
