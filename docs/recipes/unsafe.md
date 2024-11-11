@@ -75,4 +75,41 @@ let x = arr.(1)
 
 ### Флаг `-unsafe`
 
-При использовании этого флага отключаются проверки при обращение по индексу через конструкции `v.(i)` и `s.[i]`. При компиляции в нативный код также отключается проверка деления на ноль.  
+При использовании этого флага отключаются проверки при обращение по индексу через конструкции `v.(i)` и `s.[i]`. При компиляции в нативный код также отключается проверка деления на ноль. 
+
+## Изменение внутреннего представления
+
+В стандартной библиотеке есть модуль [`Obj`](https://ocaml.org/manual/api/Obj.html) дающий операции над 
+внутреннем представлением OCaml-значений. Not for the casual user!
+
+> [!INFO] Мат. часть
+> Смотрите [RWO, Memory Representation of Values](https://dev.realworldocaml.org/runtime-memory-layout.html) и [Interfacing C with OCaml](https://ocaml.org/manual/intfc.html). 
+
+### Transmute
+
+Мы можем интерпретировать одно значение как другое, либо преобразовать его в полиморфную форму, 
+посредством функции `Obj.magic`:
+
+```ocaml
+# Obj.magic 121;;
+- : 'a = <poly>
+```
+```ocaml
+# (Obj.magic 121 : char);;
+- : char = 'y'
+```
+```ocaml
+# (Obj.repr 121 |> Obj.obj : char);;
+- : char = 'y'
+```
+
+Юзкейс с файловыми дескрипторами:
+
+```ocaml
+# (Obj.magic Unix.stdout : int);;
+- : int = 1
+```
+```ocaml
+# (Obj.magic 1 : Unix.file_descr);;
+- : Unix.file_descr = <abstr>
+```
