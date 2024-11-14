@@ -6,26 +6,3 @@
 
 Не покрывает весь функционал, так как создавалась для решения задачи *X*. Но даёт возможность 
 самостоятельно расширить функционал, как обычным форком, либо in-place расширением модуля.
-
-## Пример
-
-```ocaml
-(* Выбираете подходящий для себя Cohttp+Lwt совместимый бекенд. *)
-#require "cohttp-lwt-unix";;
-```
-
-```ocaml
-(* Создание first-class модуля Token для. *)
-let token = Vkashka.access_token "YOUR_TOKEN"
-
-(* Создание модуля для работы с API с внедренными зависимостями: 
-   реализация Cohttp+Lwt-совместимого клиента и токен.  *)
-module Vk_api = Vkashka.Api (Cohttp_lwt_unix.Client) (val token)
-
-(* Получение одного пользователя.  *)
-Vk_api.Users.(get ~user_ids:["username"] () |> first)
-(* - : Vkashka.User.t option *)
-```
-
-В случае ошибки от API (например, при неверном токене) бросается исключение `Response.Api_error`, 
-в случае ошибки парсинга `Response.Parse_error`.
