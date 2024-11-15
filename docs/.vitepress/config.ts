@@ -23,7 +23,8 @@ export default defineConfig({
         base: "/in-examples/",
         link: "/index",
         items: [
-          { text: "Работа с JSON", link: "/json" },
+          { text: "JSON", link: "/json" },
+          { text: "TCP/IP", link: "/tcp-ip" },
         ]
       },
       {
