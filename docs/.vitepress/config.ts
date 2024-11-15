@@ -1,5 +1,4 @@
 import { defineConfig } from "vitepress";
-import { ru } from './ru'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ocamlportal",
@@ -18,6 +17,15 @@ export default defineConfig({
       { text: "Полезные ресурсы", link: "/resources" },
       { text: "Мат. часть", link: "/theory" },
       { text: "Сообщество", link: "/community" },
+      {
+        text: "В примерах",
+        collapsed: false,
+        base: "/in-examples/",
+        link: "/index",
+        items: [
+          { text: "Работа с JSON", link: "/json" },
+        ]
+      },
       {
         text: "Рецепты",
         collapsed: false,
