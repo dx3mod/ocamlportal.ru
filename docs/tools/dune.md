@@ -39,13 +39,13 @@ outline: deep
 > которых является распространенной практикой. 
 >
 > Пример из [Lwt](../libraries/concurrency/lwt.md):
-> ```
+> ```Dune
 > (library
 >  (name lwt_unix)
 >  (public_name lwt.unix)
 > ```
 > Пример из [Cohttp](../libraries/web/cohttp.md):
-> ```
+> ```Dune
 > (library
 >  (name cohttp_eio)
 >  (public_name cohttp-eio)
@@ -75,14 +75,14 @@ outline: deep
 ```
 
 `lib/dune`
-```
+```Dune
 (library
  (public_name hello_world)
  (libraries foo))
 ```
 
 `foo/dune`
-```
+```Dune
 (library
   (name foo)
   (package hello_world))
@@ -100,13 +100,13 @@ outline: deep
 :::details Пример 
 
 `lib/dune`
-```
+```Dune
 (library
  (public_name foo))
 ```
 
 `bin/dune`
-```
+```Dune
 (executable
  (name main)
  (public_name foo)
@@ -155,7 +155,7 @@ Fatal error: exception Sys_error("data.test.txt: No such file or directory") # [
 
 Для исправления этого в файле `dune` вы должны указать зависимости в поле `deps`.
 
-```
+```Dune
 (test
  (name test_demo)
  (deps data.test.txt)) // [!code ++]
@@ -169,7 +169,7 @@ Dune умеет в установку скомпилированных арте�
 
 Для этого существует _строфа_ `install` в `dune` файле. Пример:
 
-```
+```Dune
 (install
  (files hello.txt)
  (section share)
@@ -184,6 +184,15 @@ Dune умеет в установку скомпилированных арте�
 
 Если вам нужно иметь внутри _компонента_ древовидную структуру файлов, то об этом надо будет явно сообщить
 посредством _строфы_ [`include_subdirs`](https://dune.readthedocs.io/en/latest/reference/dune/include_subdirs.html).
+
+## Открытие модуля для всего проекта
+
+Тоже самое, что `ocamlc -open <module>`. Может быть полезным, например, при использовании 
+альтернативной стандартной библиотеке, вроде [Base](../libraries/core/base.md).
+
+```Dune
+(env (_ (flags (:standard -open Base))))
+```
 
 ## .opam.template
 
