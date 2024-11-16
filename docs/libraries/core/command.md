@@ -33,3 +33,4 @@ let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command
 
 - [`Cmdliner`](../cli/cmdliner.md) &mdash; мощнейший комбайн для тех, кто понял как его использовать, для остальных это непонятное overengineering поделие от сумасшедших.   
 - [`Arg`](https://ocaml.org/manual/api/Arg.html) &mdash; для простых интерфейсов, где надо принять пару флагов, наиболее удачное решение.
+- [`Cmdlang`](https://github.com/mbarbin/cmdlang) &mdash; declarative command-line parsing for OCaml 
