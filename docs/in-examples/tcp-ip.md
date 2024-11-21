@@ -8,13 +8,40 @@ outline: deep
 
 > [!INFO] Смотрите также
 > - [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/) &mdash; детальная книга по системному программированию
-
-## С помощью [Lwt_unix](../libraries/concurrency/lwt.md)
-
-> [!INFO] Смотрите также
 > - [Освобождение ресурсов](../recipes/dispose-resources.md) &mdash; при работе с ресурсами очень важно правильно их освобождать,обязательна к ознакомлению;
 
+## С помощью [Lwt](../libraries/concurrency/lwt.md)
+
 ### TCP клинт
+
+> [!NOTE] В реальных проектах 
+> - [Nats_lwt.Connection](https://github.com/romanchechyotkin/nats.ocaml/blob/main/lwt/connection.ml) &mdash; реализация подключения к NATS серверу;
+
+
+```Dune
+(libraries lwt.unix)
+(preprocess
+  (pps lwt_ppx))
+```
+
+#### Lwt_io
+
+```ocaml
+open Lwt.Infix
+
+let host = "127.0.0.1"
+and port = 8080
+
+let () =
+  Lwt_main.run
+  @@ Lwt_io.with_connection
+       Unix.(ADDR_INET (inet_addr_of_string host, port))
+       (fun (ic, oc) ->
+         Lwt_io.write oc "GET / HTTP/1.1\r\n\r\n";%lwt
+         Lwt_io.read_line ic >>= Lwt_io.printl)
+```
+
+#### Lwt_unix
 
 ```ocaml
 module Tcp_connection = struct
@@ -58,5 +85,3 @@ let () =
   Tcp_connection.close connection
 ```
 
-> [!NOTE] В реальных проектах 
-> - [Nats_lwt.Connection](https://github.com/romanchechyotkin/nats.ocaml/blob/main/lwt/connection.ml) &mdash; реализация подключения к NATS серверу;

@@ -62,7 +62,7 @@ let read_first_line_from_file filename =
 > Освобождения ресурса произойдёт только тогда, когда OCaml решит очистить объект, 
 > а это может не произойти вообще. Смотрите [Memory management](./performance.md#memory-management).
 
-> [!TIP] Библиотека Lwt
+> [!NOTE] Библиотека Lwt
 > В пакете `lwt.unix` (часть [Lwt](../libraries/concurrency/lwt.md)) есть модуль `Lwt_gc` и функция `finalise_or_exit`, которая гарантирует, что
 > при завершении программы ресурс будет освобождён (будет вызвана функция, в которой произойдёт освобождение).
 > 
