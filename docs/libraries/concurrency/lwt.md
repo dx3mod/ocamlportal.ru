@@ -11,7 +11,7 @@ outline: deep
 
 Также активно используется в среде [MirageOS].
 
-## Пример
+## Пример 
 
 Пример Lwt-программы, которая запрашивает первую страницу Google и терпит неудачу, если запрос не завершен в течение пяти секунд:
 
@@ -42,9 +42,13 @@ let () =
 (* ocamlfind opt -package lwt.unix -linkpkg example.ml && ./a.out *)
 ```
 
+> [!NOTE] Смотрите также
+> - [Примеры по работе с TCP/IP](../../in-examples/tcp-ip.md#с-помощью-lwt)
+
+
 ## Ppx
 
-Препроцессинг для `do`-подобного синтаксиса ([`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt)):
+Препроцессинг для do-подобного синтаксиса ([`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt)). Настоятельно рекомендуется к использованию!
 ```ocaml
 let%lwt user = get_user_from_api "dad" in
 (* ... *)
@@ -81,3 +85,17 @@ let _ =
 [MirageOS]: https://mirage.io/ 
 [Ocsigen]: https://ocsigen.org/home/intro.html
 [libev]: http://software.schmorp.de/pkg/libev.html
+
+## Трюки
+
+### Never-промис
+
+Тут мы создаем промис, который никогда не будет зарезолвен, а значит последовательность 
+не продолжится.  
+
+```ocaml
+let never = fst @@ Lwt.wait ()
+```
+```ocaml
+let%lwt _ = never in (* ... *)
+```

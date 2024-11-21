@@ -12,6 +12,7 @@
         "Stdlib",
         "struct",
         "utop",
-        "Vkashka"
+        "Vkashka",
+        "промис"
     ]
 }
