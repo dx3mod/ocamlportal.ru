@@ -11,6 +11,10 @@ outline: deep
 
 Также активно используется в среде [MirageOS].
 
+> [!NOTE] Смотрите также
+> - [CS3110, 8.7. Promises](https://cs3110.github.io/textbook/chapters/ds/promises.html) &mdash; детальной рассмотрение дизайна и устройства промисов;  
+> - Детали реализации смотрите в файле [`lwt.ml`](https://github.com/ocsigen/lwt/blob/master/src/core/lwt.ml) и т.д.;
+
 ## Пример 
 
 Пример Lwt-программы, которая запрашивает первую страницу Google и терпит неудачу, если запрос не завершен в течение пяти секунд:
@@ -39,7 +43,11 @@ let () =
   | Some response -> print_string response
   | None -> prerr_endline "Request timed out"; exit 1
 
-(* ocamlfind opt -package lwt.unix -linkpkg example.ml && ./a.out *)
+```
+```Dune
+(executable 
+  ...
+  (libraries lwt.unix))
 ```
 
 > [!NOTE] Смотрите также
@@ -48,7 +56,9 @@ let () =
 
 ## Ppx
 
-Препроцессинг для do-подобного синтаксиса ([`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt)). Настоятельно рекомендуется к использованию!
+[`ppx_lwt`](https://ocsigen.org/lwt/4.1.0/api/Ppx_lwt) &mdash; препроцессинг для удобной монадики с Lwt-промисами.
+Настоятельно рекомендуется к использованию! 
+
 ```ocaml
 let%lwt user = get_user_from_api "dad" in
 (* ... *)
@@ -59,7 +69,6 @@ send_message "some text";%lwt
 
 > [!NOTE] Смотрите также
 > - Рецепт по [освобождения ресурсов](../../recipes/dispose-resources.md)
-> - Применение в библиотеке [nats.ocaml](../web/nats-ocaml.md)
 
 Библиотека Lwt предоставляет удобную абстракцию под названием [switches](https://ocsigen.org/lwt/latest/api/Lwt_switch) 
 (свитчи), эдакая область видимости, к которой мы привязываем ресурсы, и по выходу из которой они будут 
@@ -82,13 +91,10 @@ let _ =
   let%lwt conn_b = connect ?switch uri in (* ... *)
 ```
 
-[MirageOS]: https://mirage.io/ 
-[Ocsigen]: https://ocsigen.org/home/intro.html
-[libev]: http://software.schmorp.de/pkg/libev.html
+> [!NOTE] Примеры использования
+> - Применение в библиотеке [nats.ocaml](../web/nats-ocaml.md)
 
-## Трюки
-
-### Never-промис
+## Never-промис
 
 Тут мы создаем промис, который никогда не будет зарезолвен, а значит последовательность 
 не продолжится.  
@@ -99,3 +105,8 @@ let never = fst @@ Lwt.wait ()
 ```ocaml
 let%lwt _ = never in (* ... *)
 ```
+
+
+[MirageOS]: https://mirage.io/ 
+[Ocsigen]: https://ocsigen.org/home/intro.html
+[libev]: http://software.schmorp.de/pkg/libev.html
