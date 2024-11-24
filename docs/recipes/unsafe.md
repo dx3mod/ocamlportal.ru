@@ -77,7 +77,7 @@ let x = arr.(1)
 
 При использовании этого флага отключаются проверки при обращение по индексу через конструкции `v.(i)` и `s.[i]`. При компиляции в нативный код также отключается проверка деления на ноль. 
 
-## Изменение внутреннего представления
+## Внутренние представление
 
 В стандартной библиотеке есть модуль [`Obj`](https://ocaml.org/manual/api/Obj.html) дающий операции над 
 внутреннем представлением OCaml-значений. Not for the casual user!
@@ -103,13 +103,28 @@ let x = arr.(1)
 - : char = 'y'
 ```
 
-Юзкейс с файловыми дескрипторами:
+Это может быть нужно, чтобы местами сломать систему типов для реализации каких-нибудь 
+умных или не очень умных вещей.
+
+#### Юзкейсы
+
+> [!NOTE] Примеры в реальном мире
+> - [Abuse системы типов в библиотеке Lwt](https://github.com/ocsigen/lwt/blob/master/src/core/lwt.ml#L311);
+
+Одно из адекватных случаев применения &mdash; приведения типов, которые невозможно 
+провернуть стандартными средствами.  
 
 ```ocaml
-# (Obj.magic Unix.stdout : int);;
-- : int = 1
+type incomplete = [ `A | `B of unit | `C of int ]
+
+type complete = [ `A | `B of unit | `C of string ]
+
+let transform : incomplete -> complete = function 
+  | `C x -> `C (string_of_int x)
+  | other -> Obj.magic other
 ```
+
 ```ocaml
-# (Obj.magic 1 : Unix.file_descr);;
-- : Unix.file_descr = <abstr>
+let int_of_fd : Unix.file_descr -> int = Obj.magic
+and fd_of_int : int -> Unix.file_descr = Obj.magic
 ```
