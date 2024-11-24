@@ -12,19 +12,18 @@ outline: deep
 
 ## С помощью [Lwt](../libraries/concurrency/lwt.md)
 
+```Dune
+(executable 
+  ...
+  (libraries lwt.unix)
+  (preprocess
+    (pps lwt_ppx)))
+```
+
 ### TCP клинт
 
 > [!NOTE] В реальных проектах 
 > - [Nats_lwt.Connection](https://github.com/romanchechyotkin/nats.ocaml/blob/main/lwt/connection.ml) &mdash; реализация подключения к NATS серверу;
-
-
-```Dune
-(libraries lwt.unix)
-(preprocess
-  (pps lwt_ppx))
-```
-
-#### Lwt_io
 
 ```ocaml
 open Lwt.Infix
@@ -40,8 +39,6 @@ let () =
          Lwt_io.write oc "GET / HTTP/1.1\r\n\r\n";%lwt
          Lwt_io.read_line ic >>= Lwt_io.printl)
 ```
-
-#### Lwt_unix
 
 ```ocaml
 module Tcp_connection = struct
@@ -70,9 +67,6 @@ module Tcp_connection = struct
   let close { ic; _ } = Lwt_io.close ic
 end
 
-```
-
-```ocaml
 open Lwt.Infix
 
 let () =
@@ -85,3 +79,42 @@ let () =
   Tcp_connection.close connection
 ```
 
+### TCP сервер
+
+```ocaml
+let serve ~host ~port =
+  let%lwt server =
+    Lwt_io.establish_server_with_client_address
+      (ADDR_INET (Unix.inet_addr_of_string host, port))
+    @@ fun _ (_, oc) ->
+    Lwt_io.write_line oc "Hello from server!";%lwt
+    Lwt_io.flush oc
+  in
+
+  let%lwt _ = fst @@ Lwt.wait () in
+  Lwt_io.shutdown_server server
+
+let () = Lwt_main.run @@ serve ~host:"127.0.0.1" ~port:8080
+```
+
+```ocaml
+let serve ~host ~port =
+  let socket = Lwt_unix.socket PF_INET SOCK_STREAM 0 in
+
+  Lwt_unix.bind socket (ADDR_INET (Unix.inet_addr_of_string host, port));%lwt
+  Lwt_unix.listen socket 10;
+
+  while%lwt true do
+    let%lwt client_socket, _ = Lwt_unix.accept socket in
+    let oc = Lwt_io.of_fd ~mode:Output client_socket in
+
+    Lwt_io.write_line oc "Hello from server!";%lwt
+    Lwt_io.flush oc;%lwt
+    
+    Lwt_unix.close client_socket
+  done;%lwt
+
+  Lwt_unix.close socket
+
+let () = Lwt_main.run @@ serve ~host:"127.0.0.1" ~port:8080
+```
