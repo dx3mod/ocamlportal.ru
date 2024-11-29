@@ -12,8 +12,14 @@ outline: deep
 Также активно используется в среде [MirageOS].
 
 > [!NOTE] Смотрите также
+> - [Заметка о Lwt, Василий Ёркин](https://vyorkin.org/ru-ru/posts/about-lwt/)
+> ---
 > - [CS3110, 8.7. Promises](https://cs3110.github.io/textbook/chapters/ds/promises.html) &mdash; детальной рассмотрение дизайна и устройства промисов;  
-> - Детали реализации смотрите в файле [`lwt.ml`](https://github.com/ocsigen/lwt/blob/master/src/core/lwt.ml) и т.д.;
+> - Скринкаст [Промисы под капотом](https://t.me/zenofrel/299)
+> - [tiny-async-lib](https://github.com/dx3mod/tiny-async-lib) &mdash; игрушечная библиотека для понимания устройства Lwt, можете также посмотреть [видео-разбор](https://t.me/zenofrel/305) его исходного кода и [пост с форума](https://discuss.ocaml.org/t/tiny-educational-concurrent-i-o-and-promises-library);
+> ---
+> - [Lwt: a Cooperative Thread Library](https://www.irif.fr/~vouillon/publi/lwt.pdf) &mdash; whitepaper про устройство Lwt;
+> - Детали реализации core'а смотрите в файле [`lwt.ml`](https://github.com/ocsigen/lwt/blob/master/src/core/lwt.ml) и т.д.;
 
 ## Пример 
 
@@ -87,8 +93,9 @@ let connect ?switch uri =
 ```ocaml
 let _ = 
   Lwt_switch.with_switch @@ fun switch ->
-  let%lwt conn_a = connect ?switch uri in 
-  let%lwt conn_b = connect ?switch uri in (* ... *)
+  let%lwt conn_a = connect ~switch uri in 
+  let%lwt conn_b = connect ~switch uri in 
+  (* ... *)
 ```
 
 > [!NOTE] Примеры использования
