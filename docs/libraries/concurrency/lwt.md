@@ -17,6 +17,7 @@ outline: deep
 > - [CS3110, 8.7. Promises](https://cs3110.github.io/textbook/chapters/ds/promises.html) &mdash; детальной рассмотрение дизайна и устройства промисов;  
 > - Скринкаст [Промисы под капотом](https://t.me/zenofrel/299)
 > - [tiny-async-lib](https://github.com/dx3mod/tiny-async-lib) &mdash; игрушечная библиотека для понимания устройства Lwt, можете также посмотреть [видео-разбор](https://t.me/zenofrel/305) его исходного кода и [пост с форума](https://discuss.ocaml.org/t/tiny-educational-concurrent-i-o-and-promises-library);
+> - Gist [`dead_simple_read_files_in_lwt.ml`](https://gist.github.com/dx3mod/1999b99d0d26f95705d1641722f474ab);
 > ---
 > - [Lwt: a Cooperative Thread Library](https://www.irif.fr/~vouillon/publi/lwt.pdf) &mdash; whitepaper про устройство Lwt;
 > - Детали реализации core'а смотрите в файле [`lwt.ml`](https://github.com/ocsigen/lwt/blob/master/src/core/lwt.ml) и т.д.;
