@@ -11,7 +11,8 @@ export default defineConfig({
     outlineTitle: 'Содержание',
     nav: [
       { text: "Главная", link: "/" },
-      { text: "Ментейнерам", link: "/maintainers" },
+      { text: "Ментейнерам 🫂", link: "/maintainers" },
+      { text: "Туториал 🐤", link: "/tutor" }
     ],
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
@@ -70,7 +71,7 @@ export default defineConfig({
       },
       {
         text: "Библиотеки",
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: "Decoders", link: "/libraries/decoders" },
           { text: "Iter", link: "/libraries/iter" },
@@ -132,7 +133,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: "github", link: "https://github.com/dx3mod/ocamlportal.ru" },
-      { icon: "discord", link: "https://discord.gg/MJvmEsVXk8" },
     ],
 
     search: {
