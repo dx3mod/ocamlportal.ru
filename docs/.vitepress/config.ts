@@ -19,16 +19,6 @@ export default defineConfig({
       { text: "Мат. часть", link: "/theory" },
       { text: "Сообщество", link: "/community" },
       {
-        text: "В примерах",
-        collapsed: false,
-        base: "/in-examples/",
-        link: "/index",
-        items: [
-          { text: "JSON", link: "/json" },
-          { text: "TCP/IP", link: "/tcp-ip" },
-        ]
-      },
-      {
         text: "Рецепты",
         collapsed: false,
         base: "/recipes/",
