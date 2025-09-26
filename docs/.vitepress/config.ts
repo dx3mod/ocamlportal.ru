@@ -16,8 +16,8 @@ export default defineConfig({
     ],
     sidebar: [
       { text: "Полезные ресурсы", link: "/resources" },
-      { text: "Мат. часть", link: "/theory" },
       { text: "Сообщество", link: "/community" },
+      { text: "Guidelines", link: "https://ocaml.org/docs/guidelines" },
       {
         text: "Рецепты",
         collapsed: false,
@@ -36,7 +36,7 @@ export default defineConfig({
           { text: "Публикация пакета", link: "/publish-package" },
           { text: "Без Stdlib", link: "/without-stdlib" },
           { text: "Освобождение ресурсов", link: "/dispose-resources" },
-          { text: "Тип &mdash; модуль", link: "/modistype" },
+          { text: "Тип - модуль", link: "/modistype" },
         ],
       },
       {
@@ -119,6 +119,7 @@ export default defineConfig({
           },
         ],
       },
+      { text: "Мат. часть", link: "/theory" },
     ],
 
     socialLinks: [
