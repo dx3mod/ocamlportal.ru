@@ -20,28 +20,35 @@ export default defineConfig({
       { text: "Guidelines", link: "https://ocaml.org/docs/guidelines" },
       {
         text: "Рецепты",
-        collapsed: false,
         base: "/recipes/",
         link: "/index",
         items: [
-          { text: "Labels", link: "/labels" },
-          { text: "Channels", link: "/channels" },
-          { text: "Backtrace recording", link: "/backtrace-recording" },
-          { text: "Unsafe", link: "/unsafe" },
+          // { text: "Labels 🏷️", link: "/labels" },
+          // { text: "Channels", link: "/channels" },
           { text: "Обработка ошибок", link: "/errors" },
-          { text: "Хвостовая рекурсия", link: "/tailcall" },
-          { text: "Конструкторы", link: "/constructor" },
           { text: "Параметры выполнения", link: "/runparams" },
-          { text: "Performance", link: "/performance" },
+          {
+            text: "Performance", link: "/performance", collapsed: false, items: [
+              { text: "Хвостовая рекурсия", link: "/tailcall" },
+              { text: "Unsafe", link: "/unsafe" },
+              { text: "Backtrace recording", link: "/backtrace-recording" },
+
+            ]
+          },
           { text: "Публикация пакета", link: "/publish-package" },
           { text: "Без Stdlib", link: "/without-stdlib" },
           { text: "Освобождение ресурсов", link: "/dispose-resources" },
-          { text: "Тип - модуль", link: "/modistype" },
+          {
+            text: "Модули", collapsed: false, items: [
+              { text: "Тип - модуль", link: "/modistype" },
+              { text: "Конструкторы", link: "/constructor" },
+
+            ]
+          },
         ],
       },
       {
         text: "Внутренности",
-        collapsed: false,
         base: "/internals/",
         items: [
           { text: "Встроенные примитивы", link: "/builtin" },
@@ -49,7 +56,6 @@ export default defineConfig({
       },
       {
         text: "Тулчейн",
-        collapsed: false,
         items: [
           { text: "Система сборки Dune", link: "/tools/dune" },
           { text: "Пакетный менеджер OPAM", link: "/tools/opam" },
@@ -61,7 +67,7 @@ export default defineConfig({
       },
       {
         text: "Библиотеки",
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: "Decoders", link: "/libraries/decoders" },
           { text: "Iter", link: "/libraries/iter" },
