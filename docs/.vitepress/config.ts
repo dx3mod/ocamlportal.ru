@@ -47,6 +47,16 @@ export default defineConfig({
           },
         ],
       },
+      // {
+      //   text: "Статьи",
+      //   base: "/articles/",
+      //   // link: "/articles",
+      //   collapsed: false,
+      //   items: [
+      //     { text: "Парсеры комбинаторы с нуля", link: "/write-parsers-combs-lib" },
+
+      //   ]
+      // },
       {
         text: "Внутренности",
         base: "/internals/",
