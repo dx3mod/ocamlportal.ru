@@ -25,6 +25,34 @@
 $ dune utop
 ```
 
+## Свои printers
+
+Для отображения, например, абстрактных значений или любых значений в дружелюбном форме для пользователя (себя), 
+вы можете установить printer'а для указанного типа. Printer &mdash; это типичная `pp` (pretty print) функция, 
+работающая с `Format.formatter`.
+
+:::info Пример для Bigstringaf
+```ocaml
+# #require "bigstringaf";;
+
+# Bigstringaf.of_string ~off:0 ~len:11 "hello world";;
+- : Bigstringaf.t = <abstr>
+
+# let pp_bigstring fmt bs = 
+    Format.pp_print_char fmt '"';
+    for i = 0 to pred @@ Bigstringaf.length bs do
+        Format.pp_print_char fmt @@ Bigstringaf.get bs i
+    done;
+    Format.pp_print_char fmt '"';;
+val pp_bigstring : Format.formatter -> Bigstringaf.t -> unit = <fun>
+
+# #install_printer pp_bigstring;;
+
+# Bigstringaf.of_string ~off:0 ~len:11 "hello world";;
+- : Bigstringaf.t = "hello world"
+```
+:::
+
 ## Настройка
 
 ### Подсветка синтаксиса

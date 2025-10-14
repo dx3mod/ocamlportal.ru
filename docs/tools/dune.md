@@ -228,6 +228,32 @@ let () = Printf.printf "%s" Css.css
 
 Смотрите также про [установку зависимых артефактов](#зависимости-при-установки). 
 
+## Загрузка printers в Toplevel
+
+Смотрите также [UTop printers](./utop.md#свои-printers).
+
+::: code-group
+```ocaml [install_printers.ml]
+let eval code =
+  let as_buf = Lexing.from_string code in
+  let parsed = !Toploop.parse_toplevel_phrase as_buf in
+  ignore (Toploop.execute_phrase true Format.std_formatter parsed)
+
+let () =
+  eval {|#require "yourlib";;|};
+  eval "#install_printer yourlib.pp_something;;"
+```
+
+```dune
+(library
+ (name lib_top)
+ (public_name lib.top)
+ (modes byte)
+ (wrapped false)
+ (libraries compiler-libs.common))
+```
+:::
+
 ## Перевод некоторых ошибок в предупреждения
 
 Dune по-умолчанию очень строг, но иногда хотелось бы сделать его мягче. Например,
