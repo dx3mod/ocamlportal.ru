@@ -24,6 +24,12 @@
 
 Далее приведены идиомы и возможные варианты как это делать правильно на OCaml.
 
+> [!INFO] Видео-иллюстрация из серии OCaml Tips
+> 
+> <iframe src="https://vkvideo.ru/video_ext.php?oid=-232966291&id=456239019" width="640" height="360" style="background-color: #000" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+>
+> Смотреть [на Youtube](https://youtu.be/wgI_FirVmzA).
+
 ## Ручное закрытие
 
 > [!CAUTION] 👂 Не рекомендуем к использованию, когда того не требует низкоуровенные подробности! 
