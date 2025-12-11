@@ -8,7 +8,12 @@
 В теории открытые типы-суммы не обязаны быть структурно типизируемыми.
 ::: -->
 
-## Расширяемые варианты
+## Алгебраические типы данных
+
+> [!TIP] Алгебраические типы данных в OCaml
+> <iframe src="https://vkvideo.ru/video_ext.php?oid=164536802&id=456239832&hash=575d539c37b2d82a&hd=3" width="100%" height="300" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+
+### Расширяемые варианты
 
 > Расширяемые типы вариантов - это типы вариантов, которые могут быть расширены новыми конструкторами вариантов.
 >

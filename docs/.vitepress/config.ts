@@ -47,6 +47,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: "Топики",
+        base: "/topics/",
+        collapsed: true,
+        items: [
+          { text: "Синтаксический анализ", link: "syntax-analyze" },
+          { text: "Interfacing C with OCaml", link: "ffi" },
+        ]
+      },
       // {
       //   text: "Статьи",
       //   base: "/articles/",
@@ -77,7 +86,7 @@ export default defineConfig({
       },
       {
         text: "Библиотеки",
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: "Decoders", link: "/libraries/decoders" },
           { text: "Iter", link: "/libraries/iter" },

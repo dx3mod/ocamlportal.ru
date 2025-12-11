@@ -43,6 +43,8 @@ outline: deep
 > - Скринкаст [Промисы под капотом](https://t.me/zenofrel/299)
 > - [tiny-async-lib](https://github.com/dx3mod/tiny-async-lib) &mdash; игрушечная библиотека для понимания устройства Lwt, можете также посмотреть [видео-разбор](https://t.me/zenofrel/305) его исходного кода и [пост с форума](https://discuss.ocaml.org/t/tiny-educational-concurrent-i-o-and-promises-library);
 > - Gist [`dead_simple_read_files_in_lwt.ml`](https://gist.github.com/dx3mod/1999b99d0d26f95705d1641722f474ab);
+> > [!TIP] Промисы под капотом
+> > <iframe src="https://vkvideo.ru/video_ext.php?oid=164536802&id=456239837&hash=e26d4237e613d2b5&hd=3" width="100%" height="300" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
 
 >  [!NOTE] Пример 
 > 

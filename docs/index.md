@@ -51,6 +51,11 @@ List.init 10 Fun.id |> chunks
 
 :::
 
+> [!INFO] Теоретический минимум по язык прог. OCaml 🐫 (2025г.)
+> <iframe src="https://vkvideo.ru/video_ext.php?oid=-232966291&id=456239017&hash=5777afcc70478d9d&hd=2" width="100%" height="300" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+> 
+> Запись от 2024 года доступна [тут](https://vkvideo.ru/away.php?to=https%3A%2F%2Fvkvideo.ru%2Fvideo164536802_456239829&cc_key=).
+
 <!-- > [!TIP] Новичок? 🐥
 > Если вы ещё совсем не знакомы с OCaml'ом, то рекомендуем пройти наш [горячий тур по языку](./tutor/index.md) (🇷🇺), раскрывающие 
 > все основные концепции языка и разработки на нём. Либо [туториал с официального сайте](https://ocaml.org/docs/tour-of-ocaml) (🇺🇸)
