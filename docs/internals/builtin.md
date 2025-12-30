@@ -6,6 +6,9 @@
 external succ : int -> int = "%succint"
 ```
 
+> [!NOTE] Скринкаст
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/PcUBd9DuzFg?si=ZaG4NGlIQyAwQ3ED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Это, так называемые, *примитивы* или *встроенные примитивы*, реализация которых определена внутри компилятора. Так, например, определены функции по работе с числами, что делает возможным генерировать более эффективный машинный код.
 
 Если брать ещё один пример, то выражения `1 + 2` и `1 |> (+) 1` в действительности преобразуются в одинаковый код, благодаря тому, что `|>` реализован *через компилятор*, а не через "настоящую" функцию.
