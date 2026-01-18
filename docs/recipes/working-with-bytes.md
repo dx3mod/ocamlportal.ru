@@ -1,7 +1,8 @@
 # Работа с байтами
 
 > [!TIP] Видео-иллюстрация из серии OCaml Tips
-> ...
+> <iframe src="https://vkvideo.ru/video_ext.php?oid=-232966291&id=456239023&hash=d6d99676ee5a4ebb&hd=3" width="100%" height="300" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+> Смотреть на [YouTube](https://youtu.be/Wk58dQ1IMZI).
 
 
 Стандартные средства (стандартная библиотека OCaml'а) предлагает достаточно богатые возможности по 
