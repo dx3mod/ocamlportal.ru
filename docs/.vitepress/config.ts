@@ -35,7 +35,20 @@ export default defineConfig({
 
             ]
           },
-          { text: "Публикация пакета", link: "/publish-package" },
+          {
+
+            text: "OPAM репозиторий",
+            items: [
+              {
+                text: "Публикация пакета", link: "/publish-package"
+              },
+              {
+                text: "Ведение пакета", link: "/package-maintenance"
+
+              },
+            ]
+          },
+
           { text: "Без Stdlib", link: "/without-stdlib" },
           { text: "Освобождение ресурсов", link: "/dispose-resources" },
           {
