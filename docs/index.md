@@ -51,6 +51,13 @@ List.init 10 Fun.id |> chunks
 
 :::
 
+:::info Комьюнити 👥
+
+Задать вопрос, поделиться или узнать что-то новое –– это возможно внутри нашего русскоязычного сообщества: telegram-чата [ReasonML и OCaml](https://t.me/reasonml_ru).
+Подключайся!
+
+:::
+
 > [!INFO] Теоретический минимум по язык прог. OCaml 🐫 (2025г.)
 > <iframe src="https://vkvideo.ru/video_ext.php?oid=-232966291&id=456239017&hash=5777afcc70478d9d&hd=2" width="100%" height="300" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
 > 
