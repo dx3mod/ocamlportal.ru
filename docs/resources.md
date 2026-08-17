@@ -23,6 +23,7 @@
 - [How to call C functions from OCaml](http://decapode314.free.fr/ocaml/ocaml-c-interface.html) &mdash; наглядное руководству по написанию C stub
 - [Binding C libraries in OCaml with the dune ctypes stanza](https://michael.bacarella.com/2022/02/19/dune-ctypes/)
 - [Simple Example where Ocaml calls a C function](https://srctxt.com/2024/basic-ocaml-ffi_20240828121852.html)
+- [Easy mistakes when writing OCaml C bindings](https://www.brendanlong.com/easy-mistakes-when-writing-ocaml-c-bindings.html)
 
 ## Полезно
 

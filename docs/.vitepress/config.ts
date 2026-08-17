@@ -59,7 +59,8 @@ export default defineConfig({
             ]
           },
           { text: "Работа с байтами", link: "/working-with-bytes" },
-          { text: "Абстрагирование IO", link: "/agnostic-io" }
+          { text: "Абстрагирование IO", link: "/agnostic-io" },
+          { text: "C interfacing", link: "/interfacing-c" }
         ],
       },
       {
