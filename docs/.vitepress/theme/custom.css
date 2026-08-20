@@ -1,0 +1,32 @@
+:root {
+    --vp-c-brand-1: var(--flexoki-orange-600);
+    --vp-c-brand-2: var(--flexoki-orange-500);
+    --vp-c-brand-3: var(--flexoki-orange-400);
+    --vp-c-brand-soft: var(--flexoki-orange-soft);
+}
+
+.dark {
+    --vp-c-bg: #222222;
+    --vp-nav-bg-color: var(--flexoki-base-900);
+
+    --vp-c-brand-1: var(--flexoki-orange-200);
+    --vp-c-brand-2: var(--flexoki-orange-300);
+    --vp-c-brand-3: var(--flexoki-orange-400);
+    --vp-c-brand-soft: var(--flexoki-orange-dark-soft);
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.text {
+  float: left;
+  width: 70%;
+}
+
+.images {
+  float: left;
+  width: 30%;
+}

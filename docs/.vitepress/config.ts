@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ocamlportal",
+  title: "OCaml Portal",
   description: "Ресурс по OCaml и его экосистеме.",
   lang: "ru-RU",
   // base: "https://dx3mod.github.io/ocamlportal.ru/",
@@ -26,7 +26,6 @@ export default defineConfig({
           // { text: "Labels 🏷️", link: "/labels" },
           // { text: "Channels", link: "/channels" },
           { text: "Обработка ошибок", link: "/errors" },
-          { text: "Параметры выполнения", link: "/runparams" },
           {
             text: "Performance", link: "/performance", collapsed: false, items: [
               { text: "Хвостовая рекурсия", link: "/tailcall" },
